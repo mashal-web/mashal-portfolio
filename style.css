@@ -1831,3 +1831,133 @@ body.menu-open {
         display: none !important;
     }
 }
+
+/* =========================
+   Missing Elements - Fixed
+========================= */
+
+/* Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--primary-hover));
+    z-index: 9999;
+    transition: width 0.1s ease;
+    will-change: width;
+}
+
+/* Skip to Content */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    background: var(--primary);
+    color: var(--bg);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    z-index: 9999;
+    transition: top var(--transition);
+}
+
+.skip-link:focus {
+    top: 20px;
+}
+
+/* Back to Top Button */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--bg);
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition);
+    box-shadow: var(--shadow-primary);
+    z-index: 999;
+}
+
+#backToTop:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: var(--primary-hover);
+}
+
+#backToTop:active {
+    transform: scale(0.95);
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Font Display Swap */
+* {
+    font-display: swap;
+}
+
+/* Contact Text Fix */
+.contact-text {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    text-align: left;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* Fix for timeline dot icons on mobile */
+@media (max-width: 768px) {
+    .timeline-dot {
+        left: -28px;
+        width: 14px;
+        height: 14px;
+        font-size: 0.5rem;
+    }
+    .timeline-dot i {
+        font-size: 0.5rem;
+    }
+}
+
+/* Fix for hero section on very small screens */
+@media (max-width: 380px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    .hero-tag {
+        font-size: 0.65rem;
+        padding: 4px 10px;
+    }
+    .btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 1.2rem;
+        min-width: 120px;
+    }
+}
+
+/* Fix for notification on mobile */
+@media (max-width: 480px) {
+    .custom-notification {
+        bottom: 70px;
+        max-width: 98%;
+    }
+    .notification-content {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+    }
+}
