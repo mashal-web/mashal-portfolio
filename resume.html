@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mashal Khan - Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .resume {
+            max-width: 900px;
+            width: 100%;
+            background: #0f172a;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            padding: 40px 45px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* =========================
+           Header - Dark Theme
+        ========================= */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid rgba(56, 189, 248, 0.2);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #f8fafc;
+            margin-bottom: 2px;
+            font-weight: 700;
+        }
+
+        .header .title {
+            font-size: 1.1rem;
+            color: #38bdf8;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .header .divider {
+            width: 50px;
+            height: 2px;
+            background: #38bdf8;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        .header .contact {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+        }
+
+        .header .contact span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .header .contact i {
+            color: #38bdf8;
+            font-size: 0.8rem;
+            width: 16px;
+        }
+
+        /* =========================
+           Sections - Dark Theme
+        ========================= */
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.05rem;
+            color: #38bdf8;
+            border-bottom: 2px solid rgba(56, 189, 248, 0.15);
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title i {
+            color: #38bdf8;
+            font-size: 0.95rem;
+            width: 20px;
+        }
+
+        /* =========================
+           Grid Layout
+        ========================= */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        /* =========================
+           Summary
+        ========================= */
+        .summary-text {
+            color: #94a3b8;
+            line-height: 1.7;
+            font-size: 0.9rem;
+        }
+
+        .summary-text strong {
+            color: #38bdf8;
+        }
+
+        /* =========================
+           Education
+        ========================= */
+        .edu-item {
+            margin-bottom: 14px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .edu-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .edu-item h3 {
+            color: #f8fafc;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .edu-item h3 i {
+            color: #38bdf8;
+            font-size: 0.85rem;
+        }
+
+        .edu-item .meta {
+            color: #64748b;
+            font-size: 0.78rem;
+            margin: 2px 0 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .edu-item .meta i {
+            color: #38bdf8;
+            font-size: 0.7rem;
+        }
+
+        .edu-item p {
+            color: #94a3b8;
+            line-height: 1.5;
+            font-size: 0.82rem;
+        }
+
+        /* =========================
+           Skills - 3 Columns
+        ========================= */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .skill-tag {
+            background: rgba(30, 41, 59, 0.5);
+            color: #f8fafc;
+            padding: 5px 14px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .skill-tag i {
+            color: #38bdf8;
+            font-size: 0.85rem;
+            width: 18px;
+        }
+
+        .skill-tag:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            background: rgba(30, 41, 59, 0.7);
+        }
+
+        /* =========================
+           Projects
+        ========================= */
+        .project-item {
+            background: rgba(30, 41, 59, 0.3);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid #38bdf8;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-item h4 {
+            color: #38bdf8;
+            font-size: 0.85rem;
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-item h4 i {
+            font-size: 0.8rem;
+        }
+
+        .project-item p {
+            color: #94a3b8;
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .project-item .tech {
+            margin-top: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .project-item .tech span {
+            font-size: 0.6rem;
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            padding: 1px 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        /* =========================
+           Interests
+        ========================= */
+        .interests-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .interest-tag {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 4px 14px;
+            border-radius: 14px;
+            font-size: 0.72rem;
+            color: #f8fafc;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .interest-tag i {
+            color: #38bdf8;
+            font-size: 0.65rem;
+        }
+
+        /* =========================
+           Print Button
+        ========================= */
+        .print-btn {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .print-btn button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-pdf {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+        .btn-pdf:hover {
+            background: #0ea5e9;
+            transform: translateY(-2px);
+        }
+
+        .btn-print {
+            background: #64748b;
+            color: white;
+        }
+        .btn-print:hover {
+            background: #475569;
+            transform: translateY(-2px);
+        }
+
+        .btn-back {
+            background: #64748b;
+            color: white;
+        }
+        .btn-back:hover {
+            background: #475569;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           PRINT STYLES
+        ========================= */
+        @media print {
+            .print-btn {
+                display: none;
+            }
+            body {
+                background: #0f172a;
+                padding: 0;
+                margin: 0;
+            }
+            .resume {
+                box-shadow: none;
+                padding: 25px 30px;
+                max-width: 100%;
+                border-radius: 0;
+                background: #0f172a;
+            }
+            .skill-tag {
+                background: rgba(30, 41, 59, 0.5) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .project-item {
+                background: rgba(30, 41, 59, 0.3) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .interest-tag {
+                background: rgba(30, 41, 59, 0.5) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .section {
+                margin-bottom: 14px;
+            }
+            .section-title {
+                margin-bottom: 8px;
+            }
+            .header {
+                padding-bottom: 14px;
+                margin-bottom: 18px;
+            }
+            .grid-2 {
+                gap: 20px;
+            }
+            .edu-item {
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+            }
+            .project-item {
+                padding: 10px 14px;
+                margin-bottom: 8px;
+            }
+        }
+
+        /* =========================
+           Responsive
+        ========================= */
+        @media (max-width: 768px) {
+            .resume {
+                padding: 25px;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .header .contact {
+                font-size: 0.75rem;
+                gap: 6px 12px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .header .contact span {
+                display: inline-flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resume {
+                padding: 18px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .print-btn button {
+                width: 100%;
+                justify-content: center;
+            }
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            .header .contact {
+                font-size: 0.7rem;
+                flex-direction: column;
+                gap: 4px;
+            }
+            .header .contact span {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume" id="resume">
+        <!-- =========================
+             HEADER
+        ========================= -->
+        <div class="header">
+            <h1>Mashal Khan</h1>
+            <div class="title">AI &amp; Cybersecurity Enthusiast</div>
+            <div class="divider"></div>
+            <div class="contact">
+                <span><i class="fas fa-map-marker-alt"></i> Pakistan</span>
+                <span><i class="fas fa-envelope"></i> imashalweb@gmail.com</span>
+                <span><i class="fab fa-linkedin"></i> linkedin.com/in/mashalkhan</span>
+                <span><i class="fab fa-github"></i> github.com/mashalkhan</span>
+            </div>
+        </div>
+
+        <!-- =========================
+             SUMMARY
+        ========================= -->
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-user"></i> Professional Summary
+            </div>
+            <p class="summary-text">
+                Aspiring <strong>Computer Science</strong> student with a background in
+                <strong>Medical Sciences</strong>. Passionate about
+                <strong>Artificial Intelligence</strong>, <strong>Cybersecurity</strong>,
+                and <strong>Web Development</strong>. Currently building practical skills
+                through hands-on projects while pursuing a career in software engineering
+                with a focus on AI and security.
+            </p>
+        </div>
+
+        <!-- =========================
+             GRID: Education + Skills
+        ========================= -->
+        <div class="grid-2">
+            <!-- Left Column: Education -->
+            <div class="section" style="margin-bottom: 0;">
+                <div class="section-title">
+                    <i class="fas fa-graduation-cap"></i> Education
+                </div>
+                <div class="edu-item">
+                    <h3><i class="fas fa-stethoscope"></i> Medical Sciences (FSC)</h3>
+                    <div class="meta">
+                        <i class="fas fa-calendar-alt"></i> 2022 - 2024
+                    </div>
+                    <p>Pre-medical education with focus on Biology, Chemistry, and Physics.</p>
+                </div>
+                <div class="edu-item">
+                    <h3><i class="fas fa-code"></i> Computer Science</h3>
+                    <div class="meta">
+                        <i class="fas fa-calendar-alt"></i> 2024 - Present
+                    </div>
+                    <p>Self-directed learning in programming, web development, AI, and cybersecurity.</p>
+                </div>
+            </div>
+
+            <!-- Right Column: Skills -->
+            <div class="section" style="margin-bottom: 0;">
+                <div class="section-title">
+                    <i class="fas fa-code"></i> Technical Skills
+                </div>
+                <div class="skills-grid">
+                    <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                    <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
+                    <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+                    <span class="skill-tag"><i class="fab fa-linux"></i> Linux</span>
+                    <span class="skill-tag"><i class="fas fa-shield-halved"></i> Cybersecurity</span>
+                    <span class="skill-tag"><i class="fas fa-code-branch"></i> Git/GitHub</span>
+                    <span class="skill-tag"><i class="fas fa-mobile-alt"></i> Responsive Design</span>
+                    <span class="skill-tag"><i class="fas fa-globe"></i> Web Development</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- =========================
+             PROJECTS
+        ========================= -->
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-project-diagram"></i> Projects
+            </div>
+            <div class="project-item">
+                <h4><i class="fas fa-globe"></i> Portfolio Website</h4>
+                <p>Responsive personal portfolio built with HTML, CSS, and JavaScript.</p>
+                <div class="tech">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+            <div class="project-item">
+                <h4><i class="fab fa-python"></i> Python Mini Projects</h4>
+                <p>Collection of beginner Python projects for problem-solving practice.</p>
+                <div class="tech">
+                    <span>Python</span>
+                </div>
+            </div>
+            <div class="project-item">
+                <h4><i class="fas fa-shield-halved"></i> Cybersecurity Toolkit</h4>
+                <p>Educational cybersecurity tools and learning resources (In Development).</p>
+                <div class="tech">
+                    <span>Python</span>
+                    <span>Linux</span>
+                    <span>Networking</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- =========================
+             INTERESTS
+        ========================= -->
+        <div class="section" style="margin-bottom: 0;">
+            <div class="section-title">
+                <i class="fas fa-heart"></i> Interests &amp; Learning
+            </div>
+            <div class="interests-grid">
+                <span class="interest-tag"><i class="fas fa-robot"></i> Artificial Intelligence</span>
+                <span class="interest-tag"><i class="fas fa-shield-halved"></i> Cybersecurity</span>
+                <span class="interest-tag"><i class="fas fa-globe"></i> Web Development</span>
+                <span class="interest-tag"><i class="fas fa-code"></i> Open Source</span>
+                <span class="interest-tag"><i class="fas fa-brain"></i> Machine Learning</span>
+                <span class="interest-tag"><i class="fas fa-cloud"></i> Cloud Computing</span>
+                <span class="interest-tag"><i class="fas fa-database"></i> Data Structures</span>
+                <span class="interest-tag"><i class="fas fa-network-wired"></i> Networking</span>
+            </div>
+        </div>
+
+        <!-- =========================
+             BUTTONS
+        ========================= -->
+        <div class="print-btn">
+            <button class="btn-pdf" onclick="downloadPDF()">
+                <i class="fas fa-download"></i> Download Resume (PDF)
+            </button>
+            <button class="btn-print" onclick="window.print()">
+                <i class="fas fa-print"></i> Print
+            </button>
+            <button class="btn-back" onclick="window.location.href='index.html'">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            const element = document.getElementById('resume');
+
+            const btn = document.querySelector('.btn-pdf');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+            btn.disabled = true;
+
+            const opt = {
+                margin: [0.3, 0.3, 0.3, 0.3],
+                filename: 'Mashal_Khan_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.95 },
+                html2canvas: {
+                    scale: 2,
+                    letterRendering: true,
+                    useCORS: true,
+                    logging: false,
+                    width: 900,
+                    height: element.scrollHeight
+                },
+                jsPDF: {
+                    unit: 'in',
+                    format: 'a4',
+                    orientation: 'portrait'
+                },
+                pagebreak: { mode: 'avoid-all' }
+            };
+
+            html2pdf()
+                .set(opt)
+                .from(element)
+                .save()
+                .then(function() {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                })
+                .catch(function(err) {
+                    console.error('PDF error:', err);
+                    btn.innerHTML = '<i class="fas fa-exclamation-circle"></i> Try Again';
+                    btn.disabled = false;
+                    setTimeout(function() {
+                        if (confirm('PDF generation failed. Would you like to print instead?')) {
+                            window.print();
+                        }
+                    }, 500);
+                });
+        }
+    </script>
+</body>
+</html>

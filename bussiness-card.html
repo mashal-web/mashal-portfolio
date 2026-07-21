@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mashal Khan - Business Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* =========================
+           Card Container
+        ========================= */
+        .card-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .business-card {
+            width: 400px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 16px;
+            padding: 30px 28px 25px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .business-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Glow effect */
+        .business-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.05) 0%, transparent 70%);
+            transform: rotate(20deg);
+            pointer-events: none;
+        }
+
+        .business-card::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -20%;
+            width: 60%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* =========================
+           Card Content
+        ========================= */
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Top Section: Avatar + Name */
+        .card-top {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .card-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            border: 2px solid #38bdf8;
+            background: rgba(30, 41, 59, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+            color: #38bdf8;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.1);
+        }
+
+        .card-name-title h2 {
+            color: #f8fafc;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .card-name-title .title {
+            color: #38bdf8;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Divider */
+        .card-divider {
+            width: 40px;
+            height: 2px;
+            background: #38bdf8;
+            margin: 12px 0 14px;
+            border-radius: 2px;
+            opacity: 0.6;
+        }
+
+        /* Tagline */
+        .card-tagline {
+            color: #94a3b8;
+            font-size: 0.78rem;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        /* Contact Info */
+        .card-contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 16px;
+            margin-bottom: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+            font-size: 0.72rem;
+            text-decoration: none;
+            transition: 0.3s;
+            padding: 4px 0;
+        }
+
+        .contact-item i {
+            color: #38bdf8;
+            font-size: 0.8rem;
+            width: 18px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .contact-item:hover {
+            color: #f8fafc;
+        }
+
+        .contact-item:hover i {
+            color: #38bdf8;
+        }
+
+        /* =========================
+           Social Links
+        ========================= */
+        .card-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 4px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .card-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(30, 41, 59, 0.5);
+            color: #94a3b8;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 1rem;
+        }
+
+        .card-social a:hover {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           Bottom Brand
+        ========================= */
+        .card-brand {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .card-brand .brand-text {
+            color: #475569;
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .card-brand .brand-icon {
+            color: #38bdf8;
+            font-size: 0.7rem;
+            opacity: 0.5;
+        }
+
+        /* =========================
+           Print Button
+        ========================= */
+        .print-btn {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .print-btn button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-pdf {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+        .btn-pdf:hover {
+            background: #0ea5e9;
+            transform: translateY(-2px);
+        }
+
+        .btn-print {
+            background: #64748b;
+            color: white;
+        }
+        .btn-print:hover {
+            background: #475569;
+            transform: translateY(-2px);
+        }
+
+        .btn-back {
+            background: #64748b;
+            color: white;
+        }
+        .btn-back:hover {
+            background: #475569;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           PRINT STYLES
+        ========================= */
+        @media print {
+            .print-btn {
+                display: none !important;
+            }
+            body {
+                background: #0f172a;
+                padding: 0;
+                margin: 0;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .business-card {
+                box-shadow: none;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .business-card::before,
+            .business-card::after {
+                display: none;
+            }
+            .card-social a {
+                background: rgba(30, 41, 59, 0.5) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .card-avatar {
+                background: rgba(30, 41, 59, 0.5) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        /* =========================
+           Responsive
+        ========================= */
+        @media (max-width: 480px) {
+            .business-card {
+                width: 100%;
+                max-width: 400px;
+                padding: 22px 18px 18px;
+            }
+
+            .card-top {
+                gap: 14px;
+            }
+
+            .card-avatar {
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
+            }
+
+            .card-name-title h2 {
+                font-size: 1.2rem;
+            }
+
+            .card-contact {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .contact-item {
+                font-size: 0.68rem;
+            }
+
+            .card-social {
+                justify-content: center;
+            }
+
+            .card-social a {
+                width: 34px;
+                height: 34px;
+                font-size: 0.85rem;
+            }
+
+            .print-btn button {
+                width: 100%;
+                justify-content: center;
+                font-size: 0.8rem;
+                padding: 8px 18px;
+            }
+
+            .card-brand .brand-text {
+                font-size: 0.5rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .business-card {
+                padding: 16px 12px 14px;
+            }
+
+            .card-top {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .card-name-title h2 {
+                font-size: 1.1rem;
+            }
+
+            .card-divider {
+                margin: 8px auto;
+            }
+
+            .card-tagline {
+                text-align: center;
+                font-size: 0.72rem;
+            }
+
+            .contact-item {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-wrapper">
+        <!-- =========================
+             BUSINESS CARD
+        ========================= -->
+        <div class="business-card" id="businessCard">
+            <div class="card-content">
+                <!-- Top: Avatar + Name -->
+                <div class="card-top">
+                    <div class="card-avatar">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <div class="card-name-title">
+                        <h2>Mashal Khan</h2>
+                        <div class="title">AI &amp; Cybersecurity Enthusiast</div>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="card-divider"></div>
+
+                <!-- Tagline -->
+                <div class="card-tagline">
+                    Building secure, intelligent, and modern web experiences while continuously learning Computer Science.
+                </div>
+
+                <!-- Contact Info -->
+                <div class="card-contact">
+                    <a href="mailto:imashalweb@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i> imashalweb@gmail.com
+                    </a>
+                    <a href="#" class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i> Pakistan
+                    </a>
+                    <a href="https://github.com/mashalkhan" target="_blank" class="contact-item">
+                        <i class="fab fa-github"></i> github.com/mashalkhan
+                    </a>
+                    <a href="https://linkedin.com/in/mashalkhan" target="_blank" class="contact-item">
+                        <i class="fab fa-linkedin"></i> linkedin.com/in/mashalkhan
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="card-social">
+                    <a href="https://github.com/mashalkhan" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/mashalkhan" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com/mashalkhan" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:imashalweb@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="#" aria-label="Portfolio">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                </div>
+
+                <!-- Bottom Brand -->
+                <div class="card-brand">
+                    <span class="brand-text">✦ Portfolio</span>
+                    <span class="brand-icon"><i class="fas fa-code"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- =========================
+             BUTTONS
+        ========================= -->
+        <div class="print-btn">
+            <button class="btn-pdf" onclick="downloadPDF()">
+                <i class="fas fa-download"></i> Download Card (PDF)
+            </button>
+            <button class="btn-print" onclick="window.print()">
+                <i class="fas fa-print"></i> Print
+            </button>
+            <button class="btn-back" onclick="window.location.href='index.html'">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            const element = document.getElementById('businessCard');
+
+            const btn = document.querySelector('.btn-pdf');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+            btn.disabled = true;
+
+            const opt = {
+                margin: [0.3, 0.3, 0.3, 0.3],
+                filename: 'Mashal_Khan_Business_Card.pdf',
+                image: { type: 'jpeg', quality: 0.95 },
+                html2canvas: {
+                    scale: 2,
+                    letterRendering: true,
+                    useCORS: true,
+                    logging: false,
+                    width: 400,
+                    height: element.scrollHeight
+                },
+                jsPDF: {
+                    unit: 'in',
+                    format: [4.2, 2.8],
+                    orientation: 'landscape'
+                },
+                pagebreak: { mode: 'avoid-all' }
+            };
+
+            html2pdf()
+                .set(opt)
+                .from(element)
+                .save()
+                .then(function() {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                })
+                .catch(function(err) {
+                    console.error('PDF error:', err);
+                    btn.innerHTML = '<i class="fas fa-exclamation-circle"></i> Try Again';
+                    btn.disabled = false;
+                    setTimeout(function() {
+                        if (confirm('PDF generation failed. Would you like to print instead?')) {
+                            window.print();
+                        }
+                    }, 500);
+                });
+        }
+    </script>
+</body>
+</html>
