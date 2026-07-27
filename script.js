@@ -50,33 +50,23 @@ if (hiddenElements.length) {
 // =========================
 // Active Navigation Link
 // =========================
-const sections = $$('section[id]');
-const navLinks = $$('.nav-links a');
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-if (sections.length && navLinks.length) {
-    const navObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                navLinks.forEach((link) => {
-                    link.classList.remove('active');
-                });
-                
-                const activeLink = $(`.nav-links a[href="#${entry.target.id}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            }
-        });
-    }, {
-        threshold: 0.4,
-        rootMargin: '0px 0px -100px 0px'
-    });
-    
-    sections.forEach((section) => {
-        navObserver.observe(section);
-    });
-}
+document.querySelectorAll('.nav-links a').forEach((link) => {
+    const href = link.getAttribute('href');
 
+    // Ignore anchor links like #main-content
+    if (href.startsWith('#')) return;
+
+    // Remove #contact if present
+    const cleanHref = href.split('#')[0];
+
+    if (cleanHref === currentPage) {
+        link.classList.add('active');
+    } else {
+        link.classList.remove('active');
+    }
+});
 // =========================
 // Mobile Navigation
 // =========================
@@ -245,10 +235,7 @@ document.querySelectorAll('img').forEach((img) => {
 // =========================
 // Console Easter Egg (Optional - Remove in Production)
 // =========================
-if (process.env.NODE_ENV !== 'production') {
-    console.log('%c🚀 Mashal Khan Portfolio', 'font-size: 24px; font-weight: bold; color: #38bdf8;');
-    console.log('%cBuilt with ❤️ using HTML, CSS & JavaScript', 'font-size: 14px; color: #94a3b8;');
-}
+console.log('%c Mashal Khan Website', 'font-size:24px; font-weight:bold; color: #38bdf8;');
 // =========================
 // Contact Form Handler
 // =========================
