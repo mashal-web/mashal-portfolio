@@ -8,10 +8,6 @@
 ========================= */
 :root {
     /* Base Colors - Dark Theme */
-    --bg: #0f172a;
-    --bg-glass: rgba(15, 23, 42, 0.1);
-    --surface: #1e293b;
-    --surface-light: #334155;
     --text: #f8fafc;
     --text-muted: #94a3b8;
     --border: rgba(255, 255, 255, 0.08);
@@ -30,18 +26,89 @@
     --radius-lg: 24px;
     --radius-full: 9999px;
     
-    /* Shadows */
     --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.15);
-    --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.25);
-    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.35);
-    --shadow-primary: 0 8px 20px rgba(56, 189, 248, 0.3);
-    
+
     /* Transitions */
     --transition-fast: 0.2s ease;
     --transition: 0.3s ease;
     --transition-slow: 0.5s ease;
 }
 
+/* ===== PAGE: HOME ===== */
+.page-home {
+    --primary: #38bdf8;
+    --primary-hover: #0ea5e9;
+    --bg: #0f172a;
+    --bg-glass: rgba(15, 23, 42, 0.1);
+    --surface: #1e293b;
+    --surface-light: #334155;
+    --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.25);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.35);
+    --shadow-primary: 0 8px 20px rgba(56, 189, 248, 0.3);
+    --shadow-primary-color: rgba(56, 189, 248, 0.15);
+    --rgb-bg: rgb(56, 189, 248);
+
+}
+
+/* ===== PAGE: ABOUT ===== */
+.page-about {
+    --primary: #34d399;
+    --primary-hover: #10b981;
+    --bg: #0a1a12;
+    --bg-glass: rgba(10, 26, 18, 0.1);
+    --surface: #0f2a1a;
+    --surface-light: #1a3a28;
+    --shadow-md: 0 12px 30px rgba(10, 26, 18, 0.25);
+    --shadow-lg: 0 20px 50px rgba(0, 20, 10, 0.35);
+    --shadow-primary: 0 8px 20px rgba(52, 211, 153, 0.3);
+    --shadow-primary-color: rgba(52, 211, 153, 0.15);
+    --rgb-bg: rgb(52, 211, 153);
+}
+
+/* ===== PAGE: PROJECTS ===== */
+.page-projects {
+    --primary: #a855f7;
+    --primary-hover: #8b5cf6;
+    --bg: #120a1e;
+    --bg-glass: rgba(18, 10, 30, 0.1);
+    --surface: #1e1030;
+    --surface-light: #2e1a45;
+    --shadow-md: 0 12px 30px rgba(18, 10, 30, 0.25);
+    --shadow-lg: 0 20px 50px rgba(10, 0, 20, 0.35);
+    --shadow-primary: 0 8px 20px rgba(168, 85, 247, 0.3);
+    --shadow-primary-color: rgba(168, 85, 247, 0.15);
+    --rgb-bg: rgb(168, 85, 247);
+}
+
+/* ===== PAGE: JOURNAL ===== */
+.page-journal {
+    --primary: #f59e0b;
+    --primary-hover: #d97706;
+    --bg: #12100a;
+    --bg-glass: rgba(18, 16, 10, 0.1);
+    --surface: #1f1a0f;
+    --surface-light: #2f251a;
+    --shadow-md: 0 12px 30px rgba(18, 16, 10, 0.25);
+    --shadow-lg: 0 20px 50px rgba(20, 15, 0, 0.35);
+    --shadow-primary: 0 8px 20px rgba(245, 158, 11, 0.3);
+    --shadow-primary-color: rgba(245, 158, 11, 0.15);
+    --rgb-bg: rgb(245, 158, 11);
+}
+
+/* ===== PAGE: CONTACT ===== */
+.page-contact {
+    --primary: #ec4899;
+    --primary-hover: #db2777;
+    --bg: #140a10;
+    --bg-glass: rgba(20, 10, 16, 0.1);
+    --surface: #220f1a;
+    --surface-light: #321a28;
+    --shadow-md: 0 12px 30px rgba(20, 10, 16, 0.25);
+    --shadow-lg: 0 20px 50px rgba(20, 0, 10, 0.35);
+    --shadow-primary: 0 8px 20px rgba(236, 72, 153, 0.3);
+    --shadow-primary-color: rgba(236, 72, 153, 0.15);
+    --rgb-bg: rgb(236, 72, 153);
+}
 /* =========================
    Reset & Base
 ========================= */
@@ -61,14 +128,15 @@ body {
     font-family: 'Poppins', sans-serif;
     color: var(--text);
     background: 
-        linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)),
+        radial-gradient(circle at 20% 50%, var(--shadow-primary-color), transparent 60%),
+        radial-gradient(circle at 80% 50%, var(--shadow-primary-color), transparent 60%),
         url("assets/images/background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow-x: hidden;
-    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 /* =========================
@@ -153,7 +221,6 @@ img {
 
 .navbar.scrolled {
     height: 64px;
-    background: rgba(15, 23, 42, 0.92);
     box-shadow: var(--shadow-lg);
 }
 
@@ -416,7 +483,7 @@ section {
    Cards
 ========================= */
 .card {
-    background: rgba(30, 41, 59, 0.3);
+    background: rgba((--surface),0.3);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border);
@@ -484,7 +551,7 @@ section {
 
 .btn-outline:hover {
     color: var(--primary);
-    background: rgba(56, 189, 248, 0.1);
+    background: var(--shadow-primary-color);
 }
 
 /* =========================
@@ -660,7 +727,7 @@ section {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    box-shadow: var(--glow-2);
     border: 3px solid var(--bg);
 }
 
@@ -882,9 +949,9 @@ section {
 }
 
 .status-badge.in-progress {
-    background: rgba(56, 189, 248, 0.15);
-    color: #38bdf8;
-    border: 1px solid rgba(56, 189, 248, 0.25);
+    background: var(--shadow-primary-color);
+    color:var(--primary);
+    border: 1px solid rgba(var(--rgb-bg), 0.25);
 }
 
 .status-badge.coming-soon {
@@ -947,7 +1014,7 @@ section {
 .form-group select {
     width: 100%;
     padding: 14px 18px;
-    background: rgba(30, 41, 59, 0.3);
+    background: var(--bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border);
@@ -969,7 +1036,7 @@ section {
 .form-group textarea:focus,
 .form-group select:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    box-shadow: 0 0 0 3px var(--shadow-primary);
     background: rgba(30, 41, 59, 0.5);
 }
 
@@ -1142,7 +1209,6 @@ section {
     text-align: center;
     padding: 40px 48px 36px;
     margin-bottom: 36px;
-    background: rgba(30, 41, 59, 0.45);
     backdrop-filter: blur(14px);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
@@ -1239,8 +1305,8 @@ section {
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--primary);
-    background: rgba(56, 189, 248, 0.03);
-    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.04);
+    background: rgba(var(--rgb-bg), 0.03);
+    box-shadow: 0 0 0 4px rgba(var(--rgb-bg), 0.04);
 }
 
 .form-group textarea {
@@ -1282,7 +1348,7 @@ section {
 
 .btn-submit:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 36px rgba(56, 189, 248, 0.25);
+    box-shadow: 0 12px 36px rgba(var(--rgb-bg), 0.25);
 }
 
 .btn-submit i {
@@ -1385,16 +1451,16 @@ section {
 }
 
 .email-icon {
-    background: rgba(56, 189, 248, 0.1);
-    color: #38bdf8;
-}
-.email-icon i { color: #38bdf8; }
+    background: var(--shadow-primary-color);
+    color: var(--primary);
+}   
+.email-icon i { color:var(--primary); }
 
 .location-icon {
-    background: rgba(52, 211, 153, 0.1);
-    color: #34d399;
+    background: var(--shadow-primary-color);
+    color: var(--primary);
 }
-.location-icon i { color: #34d399; }
+.location-icon i { color: var(--primary) }
 
 .availability-icon {
     background: rgba(251, 191, 36, 0.1);
@@ -1483,8 +1549,8 @@ section {
     border-color: #1da1f2;
 }
 .social-link.email:hover {
-    color: #38bdf8;
-    border-color: #38bdf8;
+    color: var(--primary);
+    border-color: var(--primary);
 }
 
 /* =========================
@@ -1547,7 +1613,6 @@ section {
     align-items: center;
     text-align: center;
     padding: 2rem;
-    background: rgba(30, 41, 59, 0.3);
     backdrop-filter: blur(12px);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
@@ -1582,9 +1647,6 @@ section {
 .social-card.linkedin i { color: #0a66c2; }
 .social-card.email i { color: var(--primary); }
 
-.social-card:hover.github { background: rgba(255, 255, 255, 0.05); }
-.social-card:hover.linkedin { background: rgba(10, 102, 194, 0.1); }
-.social-card:hover.email { background: rgba(56, 189, 248, 0.05); }
 
 /* =========================
    Availability
@@ -1682,7 +1744,7 @@ section {
 .journal-nav-link.active {
     border-color: var(--primary);
     color: var(--text);
-    background: rgba(56, 189, 248, 0.1);
+    background: var(--shadow-primary-color);
 }
 
 /* =========================
@@ -1693,7 +1755,6 @@ section {
 }
 
 .entry-card {
-    background: rgba(30, 41, 59, 0.3);
     backdrop-filter: blur(12px);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
@@ -1720,8 +1781,8 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(56, 189, 248, 0.08);
-    border: 1px solid rgba(56, 189, 248, 0.15);
+    background: rgba(var(--rgb-bg), 0.08);
+    border: 1px solid var(--shadow-primary-color);
     border-radius: var(--radius-sm);
     padding: 8px 16px;
     min-width: 65px;
@@ -1822,12 +1883,12 @@ section {
 }
 
 .entry-body code {
-    background: rgba(56, 189, 248, 0.08);
+    background: rgba(var(--rgb-bg), 0.08);
     color: var(--primary);
     padding: 2px 8px;
     border-radius: 4px;
     font-size: 0.9rem;
-    border: 1px solid rgba(56, 189, 248, 0.1);
+    border: 1px solid var(--shadow-primary-color);
 }
 
 .entry-footer {
@@ -1847,7 +1908,7 @@ section {
 }
 
 .entry-tags span {
-    background: rgba(56, 189, 248, 0.06);
+    background: rgba(var(--rgb-bg), 0.06);
     color: var(--text-muted);
     padding: 4px 12px;
     border-radius: var(--radius-full);
@@ -1859,7 +1920,7 @@ section {
 .entry-tags span:hover {
     color: var(--primary);
     border-color: var(--primary);
-    background: rgba(56, 189, 248, 0.1);
+    background: var(--shadow-primary-color);
 }
 
 .entry-actions {
@@ -1905,9 +1966,11 @@ section {
     right: 30px;
     width: 50px;
     height: 50px;
-    border: none;
+    border: 1px;
     border-radius: 50%;
-    color: var(--bg);
+    backdrop-filter: blur(5px);
+    background: var(--bg-glass);
+    color: var(--primary);
     font-size: 1.5rem;
     font-weight: 700;
     cursor: pointer;
@@ -1923,6 +1986,7 @@ section {
 
 #backToTop:hover {
     transform: translateY(-5px) scale(1.05);
+    background: var(--bg);
 }
 
 #backToTop:active {
@@ -2321,7 +2385,7 @@ body.menu-open {
     left: -36px;
     top: 6px;
     border: 3px solid var(--bg);
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    box-shadow:var(--shadow-primary)
 }
 
 .timeline-dot i {
@@ -2366,53 +2430,49 @@ body.menu-open {
 ======================================== */
 
 /* ---------- PAGE: HOME (Sky Blue) ---------- */
-.page-home {
-    --primary: #38bdf8;
-    --primary-hover: #0ea5e9;
+
+.scroll-progress {
+    background: linear-gradient(to right, var(--primary), var(--primary-hover));
 }
 
-.page-home .scroll-progress {
-    background: linear-gradient(to right, #38bdf8, #0ea5e9);
+.section-title,
+.hero-tag,
+.logo a:hover,
+.nav-links a.active,
+.section-title i,
+.card h3,
+.card h4,
+.hero-socials a:hover,
+.intro-title i,
+.intro-badge {
+    color: var(--primary) !important;
 }
 
-.page-home .section-title,
-.page-home .hero-tag,
-.page-home .logo a:hover,
-.page-home .nav-links a.active,
-.page-home .section-title i,
-.page-home .card h3,
-.page-home .card h4,
-.page-home .hero-socials a:hover,
-.page-home .intro-title i,
-.page-home .intro-badge {
-    color: #38bdf8 !important;
+.section-title::after,
+.btn-primary,
+.project-badge,
+.progress,
+.scroll-progress,
+.nav-links a::after,
+.hero-socials a::after,
+.timeline-dot,
+.timeline::before {
+    background: var(--primary) !important;
 }
 
-.page-home .section-title::after,
-.page-home .btn-primary,
-.page-home .project-badge,
-.page-home .progress,
-.page-home .scroll-progress,
-.page-home .nav-links a::after,
-.page-home .hero-socials a::after,
-.page-home .timeline-dot,
-.page-home .timeline::before {
-    background: #38bdf8 !important;
+.btn-primary:hover {
+    background: var(--primary-hover) !important;
 }
 
-.page-home .btn-primary:hover {
-    background: #0ea5e9 !important;
+.card:hover,
+.project-card:hover,
+.btn-outline:hover {
+    border-color: var(--primary) !important;
 }
 
-.page-home .card:hover,
-.page-home .project-card:hover,
-.page-home .btn-outline:hover {
-    border-color: #38bdf8 !important;
-}
-
-.page-home .btn-outline:hover {
-    color: #38bdf8 !important;
-    background: rgba(56, 189, 248, 0.1) !important;
+.btn-outline:hover {
+    color: var(--primary) !important;
+    background: var(--shadow-primary-color) !important;
 }
 
 .page-home .hero-tag {
@@ -2421,339 +2481,52 @@ body.menu-open {
 }
 
 .page-home .intro-badge {
-    border-color: rgba(56, 189, 248, 0.15) !important;
+    border-color: var(--shadow-primary-color) !important;
     background: rgba(56, 189, 248, 0.08) !important;
 }
 
-.page-home #backToTop {
-    background: #38bdf8 !important;
-}
-
-.page-home #backToTop:hover {
-    background: #0ea5e9 !important;
-}
-
-.page-home .btn-submit {
-    background: linear-gradient(135deg, #38bdf8, #0ea5e9) !important;
+.btn-submit {
+    background: linear-gradient(135deg, var(--primary), var(--primary-hover)) !important;
 }
 
 .page-home .form-group input:focus,
 .page-home .form-group textarea:focus {
-    border-color: #38bdf8 !important;
+    border-color: var(--primary) !important;
     box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.08) !important;
 }
 
+.btn-outline:hover {
+    color: var(--primary) !important;
+    background: rgba(var(--rgb-bg) 0.1) !important;
+}
+
+.hero-tag {
+    border-color: rgba(var(--rgb-bg) 0.25) !important;
+    background: rgba(var(--rgb-bg) 0.08) !important;
+}
+
+.intro-badge {
+    border-color:var(--shadow-primary-color) !important;
+    background: rgba(var(--rgb-bg), 0.08) !important;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, var(--primary), var(--primary-hover)) !important;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 4px rgba(var(--rgb-bg), 0.08) !important;
+}
+
 /* ---------- PAGE: ABOUT (Emerald Green) ---------- */
-.page-about {
-    --primary: #34d399;
-    --primary-hover: #10b981;
-}
-
-.page-about .scroll-progress {
-    background: linear-gradient(to right, #34d399, #10b981);
-}
-
-.page-about .section-title,
-.page-about .hero-tag,
-.page-about .logo a:hover,
-.page-about .nav-links a.active,
-.page-about .section-title i,
-.page-about .card h3,
-.page-about .card h4,
-.page-about .hero-socials a:hover,
-.page-about .intro-title i,
-.page-about .intro-badge {
-    color: #34d399 !important;
-}
-
-.page-about .section-title::after,
-.page-about .btn-primary,
-.page-about .project-badge,
-.page-about .progress,
-.page-about .scroll-progress,
-.page-about .nav-links a::after,
-.page-about .hero-socials a::after,
-.page-about .timeline-dot,
-.page-about .timeline::before {
-    background: #34d399 !important;
-}
-
-.page-about .btn-primary:hover {
-    background: #10b981 !important;
-}
-
-.page-about .card:hover,
-.page-about .project-card:hover,
-.page-about .btn-outline:hover {
-    border-color: #34d399 !important;
-}
-
-.page-about .btn-outline:hover {
-    color: #34d399 !important;
-    background: rgba(52, 211, 153, 0.1) !important;
-}
-
-.page-about .hero-tag {
-    border-color: rgba(52, 211, 153, 0.25) !important;
-    background: rgba(52, 211, 153, 0.08) !important;
-}
-
-.page-about .intro-badge {
-    border-color: rgba(52, 211, 153, 0.15) !important;
-    background: rgba(52, 211, 153, 0.08) !important;
-}
-
-.page-about #backToTop {
-    background: #34d399 !important;
-}
-
-.page-about #backToTop:hover {
-    background: #10b981 !important;
-}
-
-.page-about .btn-submit {
-    background: linear-gradient(135deg, #34d399, #10b981) !important;
-}
-
-.page-about .form-group input:focus,
-.page-about .form-group textarea:focus {
-    border-color: #34d399 !important;
-    box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.08) !important;
-}
 
 /* ---------- PAGE: PROJECTS (Purple) ---------- */
-.page-projects {
-    --primary: #a855f7;
-    --primary-hover: #8b5cf6;
-}
-
-.page-projects .scroll-progress {
-    background: linear-gradient(to right, #a855f7, #8b5cf6);
-}
-
-.page-projects .section-title,
-.page-projects .hero-tag,
-.page-projects .logo a:hover,
-.page-projects .nav-links a.active,
-.page-projects .section-title i,
-.page-projects .card h3,
-.page-projects .card h4,
-.page-projects .hero-socials a:hover,
-.page-projects .intro-title i,
-.page-projects .intro-badge {
-    color: #a855f7 !important;
-}
-
-.page-projects .section-title::after,
-.page-projects .btn-primary,
-.page-projects .project-badge,
-.page-projects .progress,
-.page-projects .scroll-progress,
-.page-projects .nav-links a::after,
-.page-projects .hero-socials a::after,
-.page-projects .timeline-dot,
-.page-projects .timeline::before {
-    background: #a855f7 !important;
-}
-
-.page-projects .btn-primary:hover {
-    background: #8b5cf6 !important;
-}
-
-.page-projects .card:hover,
-.page-projects .project-card:hover,
-.page-projects .btn-outline:hover {
-    border-color: #a855f7 !important;
-}
-
-.page-projects .btn-outline:hover {
-    color: #a855f7 !important;
-    background: rgba(168, 85, 247, 0.1) !important;
-}
-
-.page-projects .hero-tag {
-    border-color: rgba(168, 85, 247, 0.25) !important;
-    background: rgba(168, 85, 247, 0.08) !important;
-}
-
-.page-projects .intro-badge {
-    border-color: rgba(168, 85, 247, 0.15) !important;
-    background: rgba(168, 85, 247, 0.08) !important;
-}
-
-.page-projects #backToTop {
-    background: #a855f7 !important;
-}
-
-.page-projects #backToTop:hover {
-    background: #8b5cf6 !important;
-}
-
-.page-projects .btn-submit {
-    background: linear-gradient(135deg, #a855f7, #8b5cf6) !important;
-}
-
-.page-projects .form-group input:focus,
-.page-projects .form-group textarea:focus {
-    border-color: #a855f7 !important;
-    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.08) !important;
-}
 
 /* ---------- PAGE: JOURNAL (Amber/Orange) ---------- */
-.page-journal {
-    --primary: #f59e0b;
-    --primary-hover: #d97706;
-}
-
-.page-journal .scroll-progress {
-    background: linear-gradient(to right, #f59e0b, #d97706);
-}
-
-.page-journal .section-title,
-.page-journal .hero-tag,
-.page-journal .logo a:hover,
-.page-journal .nav-links a.active,
-.page-journal .section-title i,
-.page-journal .card h3,
-.page-journal .card h4,
-.page-journal .hero-socials a:hover,
-.page-journal .intro-title i,
-.page-journal .intro-badge {
-    color: #f59e0b !important;
-}
-
-.page-journal .section-title::after,
-.page-journal .btn-primary,
-.page-journal .project-badge,
-.page-journal .progress,
-.page-journal .scroll-progress,
-.page-journal .nav-links a::after,
-.page-journal .hero-socials a::after,
-.page-journal .timeline-dot,
-.page-journal .timeline::before {
-    background: #f59e0b !important;
-}
-
-.page-journal .btn-primary:hover {
-    background: #d97706 !important;
-}
-
-.page-journal .card:hover,
-.page-journal .project-card:hover,
-.page-journal .btn-outline:hover {
-    border-color: #f59e0b !important;
-}
-
-.page-journal .btn-outline:hover {
-    color: #f59e0b !important;
-    background: rgba(245, 158, 11, 0.1) !important;
-}
-
-.page-journal .hero-tag {
-    border-color: rgba(245, 158, 11, 0.25) !important;
-    background: rgba(245, 158, 11, 0.08) !important;
-}
-
-.page-journal .intro-badge {
-    border-color: rgba(245, 158, 11, 0.15) !important;
-    background: rgba(245, 158, 11, 0.08) !important;
-}
-
-.page-journal #backToTop {
-    background: #f59e0b !important;
-}
-
-.page-journal #backToTop:hover {
-    background: #d97706 !important;
-}
-
-.page-journal .btn-submit {
-    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
-}
-
-.page-journal .form-group input:focus,
-.page-journal .form-group textarea:focus {
-    border-color: #f59e0b !important;
-    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.08) !important;
-}
 
 /* ---------- PAGE: CONTACT (Pink) ---------- */
-.page-contact {
-    --primary: #ec4899;
-    --primary-hover: #db2777;
-}
-
-.page-contact .scroll-progress {
-    background: linear-gradient(to right, #ec4899, #db2777);
-}
-
-.page-contact .section-title,
-.page-contact .hero-tag,
-.page-contact .logo a:hover,
-.page-contact .nav-links a.active,
-.page-contact .section-title i,
-.page-contact .card h3,
-.page-contact .card h4,
-.page-contact .hero-socials a:hover,
-.page-contact .intro-title i,
-.page-contact .intro-badge {
-    color: #ec4899 !important;
-}
-
-.page-contact .section-title::after,
-.page-contact .btn-primary,
-.page-contact .project-badge,
-.page-contact .progress,
-.page-contact .scroll-progress,
-.page-contact .nav-links a::after,
-.page-contact .hero-socials a::after,
-.page-contact .timeline-dot,
-.page-contact .timeline::before {
-    background: #ec4899 !important;
-}
-
-.page-contact .btn-primary:hover {
-    background: #db2777 !important;
-}
-
-.page-contact .card:hover,
-.page-contact .project-card:hover,
-.page-contact .btn-outline:hover {
-    border-color: #ec4899 !important;
-}
-
-.page-contact .btn-outline:hover {
-    color: #ec4899 !important;
-    background: rgba(236, 72, 153, 0.1) !important;
-}
-
-.page-contact .hero-tag {
-    border-color: rgba(236, 72, 153, 0.25) !important;
-    background: rgba(236, 72, 153, 0.08) !important;
-}
-
-.page-contact .intro-badge {
-    border-color: rgba(236, 72, 153, 0.15) !important;
-    background: rgba(236, 72, 153, 0.08) !important;
-}
-
-.page-contact #backToTop {
-    background: #ec4899 !important;
-}
-
-.page-contact #backToTop:hover {
-    background: #db2777 !important;
-}
-
-.page-contact .btn-submit {
-    background: linear-gradient(135deg, #ec4899, #db2777) !important;
-}
-
-.page-contact .form-group input:focus,
-.page-contact .form-group textarea:focus {
-    border-color: #ec4899 !important;
-    box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.08) !important;
-}
 
 /* =========================
    Responsive Design
@@ -3474,506 +3247,139 @@ body.menu-open {
     }
 }
 
-
-
 /* ========================================
    FIX: MISSING COLORS FOR ICONS & LABELS
 ======================================== */
 
-/* ---------- PAGE: HOME (Sky Blue) ---------- */
-.page-home .intro-title i,
-.page-home .intro-badge i,
-.page-home .section-title i,
-.page-home .hero-tag i,
-.page-home .card i,
-.page-home .btn i,
-.page-home .btn-outline i,
-.page-home .btn-primary i,
-.page-home .nav-links a i,
-.page-home .logo i,
-.page-home .hero-socials a i,
-.page-home .exploring-icon i,
-.page-home .exploring-card i,
-.page-home .journal-preview-card i,
-.page-home .project-card i,
-.page-home .contact-text i,
-.page-home .contact-buttons i,
-.page-home .section-footer i,
-.page-home .next-page-nav i,
-.page-home .form-group label i,
-.page-home .input-label i,
-.page-home .content-icon i,
-.page-home .social-link i,
-.page-home .resource-icon i,
-.page-home .intro-stats i,
-.page-home .stat-item i {
-    color: #38bdf8 !important;
+.intro-title i,
+.intro-badge i,
+.section-title i,
+.hero-tag i,
+.card i,
+.btn i,
+.btn-outline i,
+.btn-primary i,
+.nav-links a i,
+.logo i,
+.hero-socials a i,
+.exploring-icon i,
+.exploring-card i,
+.journal-preview-card i,
+.project-card i,
+.contact-text i,
+.contact-buttons i,
+.section-footer i,
+.next-page-nav i,
+.form-group label i,
+.input-label i,
+.content-icon i,
+.social-link i,
+.resource-icon i,
+.intro-stats i,
+.tech-stack span i,
+.nav-links a::after,
+.hero-socials a::after,
+.stat-item i,
+.form-group input:focus ~ .input-label i,
+.form-group textarea:focus ~ .input-label i  {
+    color: var(--primary) !important;
 }
 
-.page-home .tech-stack span i {
-    color: #38bdf8 !important;
-}
-
-.page-home .project-badge i {
+.project-badge i {
     color: var(--bg) !important;
 }
 
-.page-home .nav-links a::after,
-.page-home .hero-socials a::after {
-    background: #38bdf8 !important;
-}
-
-.page-home .form-group input:focus ~ .input-label i,
-.page-home .form-group textarea:focus ~ .input-label i {
-    color: #38bdf8 !important;
-}
+/* ---------- PAGE: HOME (Sky Blue) ---------- */
 
 /* ---------- PAGE: ABOUT (Emerald Green) ---------- */
-.page-about .intro-title i,
-.page-about .intro-badge i,
-.page-about .section-title i,
-.page-about .hero-tag i,
-.page-about .card i,
-.page-about .btn i,
-.page-about .btn-outline i,
-.page-about .btn-primary i,
-.page-about .nav-links a i,
-.page-about .logo i,
-.page-about .hero-socials a i,
-.page-about .exploring-icon i,
-.page-about .exploring-card i,
-.page-about .journal-preview-card i,
-.page-about .project-card i,
-.page-about .contact-text i,
-.page-about .contact-buttons i,
-.page-about .section-footer i,
-.page-about .next-page-nav i,
-.page-about .form-group label i,
-.page-about .input-label i,
-.page-about .content-icon i,
-.page-about .social-link i,
-.page-about .resource-icon i,
-.page-about .intro-stats i,
-.page-about .stat-item i {
-    color: #34d399 !important;
-}
-
-.page-about .tech-stack span i {
-    color: #34d399 !important;
-}
-
-.page-about .project-badge i {
-    color: var(--bg) !important;
-}
-
-.page-about .nav-links a::after,
-.page-about .hero-socials a::after {
-    background: #34d399 !important;
-}
 
 /* ---------- PAGE: PROJECTS (Purple) ---------- */
-.page-projects .intro-title i,
-.page-projects .intro-badge i,
-.page-projects .section-title i,
-.page-projects .hero-tag i,
-.page-projects .card i,
-.page-projects .btn i,
-.page-projects .btn-outline i,
-.page-projects .btn-primary i,
-.page-projects .nav-links a i,
-.page-projects .logo i,
-.page-projects .hero-socials a i,
-.page-projects .exploring-icon i,
-.page-projects .exploring-card i,
-.page-projects .journal-preview-card i,
-.page-projects .project-card i,
-.page-projects .contact-text i,
-.page-projects .contact-buttons i,
-.page-projects .section-footer i,
-.page-projects .next-page-nav i,
-.page-projects .form-group label i,
-.page-projects .input-label i,
-.page-projects .content-icon i,
-.page-projects .social-link i,
-.page-projects .resource-icon i,
-.page-projects .intro-stats i,
-.page-projects .stat-item i {
-    color: #a855f7 !important;
-}
-
-.page-projects .tech-stack span i {
-    color: #a855f7 !important;
-}
-
-.page-projects .project-badge i {
-    color: var(--bg) !important;
-}
-
-.page-projects .nav-links a::after,
-.page-projects .hero-socials a::after {
-    background: #a855f7 !important;
-}
 
 /* ---------- PAGE: JOURNAL (Amber) ---------- */
-.page-journal .intro-title i,
-.page-journal .intro-badge i,
-.page-journal .section-title i,
-.page-journal .hero-tag i,
-.page-journal .card i,
-.page-journal .btn i,
-.page-journal .btn-outline i,
-.page-journal .btn-primary i,
-.page-journal .nav-links a i,
-.page-journal .logo i,
-.page-journal .hero-socials a i,
-.page-journal .exploring-icon i,
-.page-journal .exploring-card i,
-.page-journal .journal-preview-card i,
-.page-journal .project-card i,
-.page-journal .contact-text i,
-.page-journal .contact-buttons i,
-.page-journal .section-footer i,
-.page-journal .next-page-nav i,
-.page-journal .form-group label i,
-.page-journal .input-label i,
-.page-journal .content-icon i,
-.page-journal .social-link i,
-.page-journal .resource-icon i,
-.page-journal .intro-stats i,
-.page-journal .stat-item i {
-    color: #f59e0b !important;
-}
-
-.page-journal .tech-stack span i {
-    color: #f59e0b !important;
-}
-
-.page-journal .project-badge i {
-    color: var(--bg) !important;
-}
-
-.page-journal .nav-links a::after,
-.page-journal .hero-socials a::after {
-    background: #f59e0b !important;
-}
 
 /* ---------- PAGE: CONTACT (Pink) ---------- */
-.page-contact .intro-title i,
-.page-contact .intro-badge i,
-.page-contact .section-title i,
-.page-contact .hero-tag i,
-.page-contact .card i,
-.page-contact .btn i,
-.page-contact .btn-outline i,
-.page-contact .btn-primary i,
-.page-contact .nav-links a i,
-.page-contact .logo i,
-.page-contact .hero-socials a i,
-.page-contact .exploring-icon i,
-.page-contact .exploring-card i,
-.page-contact .journal-preview-card i,
-.page-contact .project-card i,
-.page-contact .contact-text i,
-.page-contact .contact-buttons i,
-.page-contact .section-footer i,
-.page-contact .next-page-nav i,
-.page-contact .form-group label i,
-.page-contact .input-label i,
-.page-contact .content-icon i,
-.page-contact .social-link i,
-.page-contact .resource-icon i,
-.page-contact .intro-stats i,
-.page-contact .stat-item i {
-    color: #ec4899 !important;
-}
-
-.page-contact .tech-stack span i {
-    color: #ec4899 !important;
-}
-
-.page-contact .project-badge i {
-    color: var(--bg) !important;
-}
-
-.page-contact .nav-links a::after,
-.page-contact .hero-socials a::after {
-    background: #ec4899 !important;
-}
 
 /* ========================================
    FIX: LABEL COLORS ON FOCUS
 ======================================== */
-.page-home .form-group input:focus ~ label,
-.page-home .form-group textarea:focus ~ label,
-.page-home .form-group input:not(:placeholder-shown) ~ label,
-.page-home .form-group textarea:not(:placeholder-shown) ~ label {
-    color: #38bdf8 !important;
-}
-
-.page-about .form-group input:focus ~ label,
-.page-about .form-group textarea:focus ~ label,
-.page-about .form-group input:not(:placeholder-shown) ~ label,
-.page-about .form-group textarea:not(:placeholder-shown) ~ label {
-    color: #34d399 !important;
-}
-
-.page-projects .form-group input:focus ~ label,
-.page-projects .form-group textarea:focus ~ label,
-.page-projects .form-group input:not(:placeholder-shown) ~ label,
-.page-projects .form-group textarea:not(:placeholder-shown) ~ label {
-    color: #a855f7 !important;
-}
-
-.page-journal .form-group input:focus ~ label,
-.page-journal .form-group textarea:focus ~ label,
-.page-journal .form-group input:not(:placeholder-shown) ~ label,
-.page-journal .form-group textarea:not(:placeholder-shown) ~ label {
-    color: #f59e0b !important;
-}
-
-.page-contact .form-group input:focus ~ label,
-.page-contact .form-group textarea:focus ~ label,
-.page-contact .form-group input:not(:placeholder-shown) ~ label,
-.page-contact .formgroup textarea:not(:placeholder-shown) ~ label {
-    color: #ec4899 !important;
+.form-group input:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+    color: var(--primary) !important;
 }
 
 /* ========================================
    FIX: TIMELINE DOT COLORS
 ======================================== */
-.page-home .timeline-dot {
-    background: #38bdf8 !important;
-}
-.page-about .timeline-dot {
-    background: #34d399 !important;
-}
-.page-projects .timeline-dot {
-    background: #a855f7 !important;
-}
-.page-journal .timeline-dot {
-    background: #f59e0b !important;
-}
-.page-contact .timeline-dot {
-    background: #ec4899 !important;
+.timeline-dot {
+    background: var(--primary) !important;
 }
 
 /* ========================================
    FIX: PROGRESS BAR COLORS
 ======================================== */
-.page-home .progress {
-    background: linear-gradient(to right, #38bdf8, #0ea5e9) !important;
-}
-.page-about .progress {
-    background: linear-gradient(to right, #34d399, #10b981) !important;
-}
-.page-projects .progress {
-    background: linear-gradient(to right, #a855f7, #8b5cf6) !important;
-}
-.page-journal .progress {
-    background: linear-gradient(to right, #f59e0b, #d97706) !important;
-}
-.page-contact .progress {
-    background: linear-gradient(to right, #ec4899, #db2777) !important;
+.progress {
+    background: linear-gradient(to right, var(--primary), var(--primary-hover)) !important;
 }
 
 /* ========================================
    FIX: CARD BORDER ON HOVER
 ======================================== */
-.page-home .card:hover {
-    border-color: #38bdf8 !important;
-}
-.page-about .card:hover {
-    border-color: #34d399 !important;
-}
-.page-projects .card:hover {
-    border-color: #a855f7 !important;
-}
-.page-journal .card:hover {
-    border-color: #f59e0b !important;
-}
-.page-contact .card:hover {
-    border-color: #ec4899 !important;
+.card:hover {
+    border-color: var(--primary) !important;
 }
 
 /* ========================================
    FIX: EXPLORING PROGRESS TAG COLORS
 ======================================== */
-.page-home .exploring-progress {
-    background: rgba(56, 189, 248, 0.15) !important;
-    color: #38bdf8 !important;
-    border-color: rgba(56, 189, 248, 0.2) !important;
-}
-.page-about .exploring-progress {
-    background: rgba(52, 211, 153, 0.15) !important;
-    color: #34d399 !important;
-    border-color: rgba(52, 211, 153, 0.2) !important;
-}
-.page-projects .exploring-progress {
-    background: rgba(168, 85, 247, 0.15) !important;
-    color: #a855f7 !important;
-    border-color: rgba(168, 85, 247, 0.2) !important;
-}
-.page-journal .exploring-progress {
-    background: rgba(245, 158, 11, 0.15) !important;
-    color: #f59e0b !important;
-    border-color: rgba(245, 158, 11, 0.2) !important;
-}
-.page-contact .exploring-progress {
-    background: rgba(236, 72, 153, 0.15) !important;
-    color: #ec4899 !important;
-    border-color: rgba(236, 72, 153, 0.2) !important;
+.exploring-progress {
+    background: var(--shadow-primary-color) !important;
+    color: var(--primary) !important;
+    border-color: rgba(var(--rgb-bg), 0.2) !important;
 }
 
 /* ========================================
    FIX: CARD TAG COLORS
 ======================================== */
-.page-home .card-tag {
-    background: rgba(56, 189, 248, 0.12) !important;
-    color: #38bdf8 !important;
-    border-color: rgba(56, 189, 248, 0.15) !important;
-}
-.page-about .card-tag {
-    background: rgba(52, 211, 153, 0.12) !important;
-    color: #34d399 !important;
-    border-color: rgba(52, 211, 153, 0.15) !important;
-}
-.page-projects .card-tag {
-    background: rgba(168, 85, 247, 0.12) !important;
-    color: #a855f7 !important;
-    border-color: rgba(168, 85, 247, 0.15) !important;
-}
-.page-journal .card-tag {
-    background: rgba(245, 158, 11, 0.12) !important;
-    color: #f59e0b !important;
-    border-color: rgba(245, 158, 11, 0.15) !important;
-}
-.page-contact .card-tag {
-    background: rgba(236, 72, 153, 0.12) !important;
-    color: #ec4899 !important;
-    border-color: rgba(236, 72, 153, 0.15) !important;
+.card-tag {
+    background: var(--shadow-primary-bg) !important;
+    color: var(--primary) !important;
+    border-color: var(--shadow-primary-color) !important;
 }
 
 /* ========================================
    FIX: JOURNAL NAV LINK COLORS
 ======================================== */
-.page-home .journal-nav-link i,
-.page-home .journal-nav-link:hover {
-    color: #38bdf8 !important;
-}
-.page-about .journal-nav-link i,
-.page-about .journal-nav-link:hover {
-    color: #34d399 !important;
-}
-.page-projects .journal-nav-link i,
-.page-projects .journal-nav-link:hover {
-    color: #a855f7 !important;
-}
-.page-journal .journal-nav-link i,
-.page-journal .journal-nav-link:hover {
-    color: #f59e0b !important;
-}
-.page-contact .journal-nav-link i,
-.page-contact .journal-nav-link:hover {
-    color: #ec4899 !important;
+.journal-nav-link i,
+.journal-nav-link:hover {
+    color: var(--primary) !important;
 }
 
-.page-home .journal-nav-link:hover {
-    border-color: #38bdf8 !important;
+.journal-nav-link:hover {
+    border-color: var(--primary) !important;
 }
-.page-about .journal-nav-link:hover {
-    border-color: #34d399 !important;
-}
-.page-projects .journal-nav-link:hover {
-    border-color: #a855f7 !important;
-}
-.page-journal .journal-nav-link:hover {
-    border-color: #f59e0b !important;
-}
-.page-contact .journal-nav-link:hover {
-    border-color: #ec4899 !important;
-}
-
 /* ========================================
    FIX: NAV CARD ICON COLORS
 ======================================== */
-.page-home .nav-card-icon {
-    background: rgba(56, 189, 248, 0.1) !important;
-    color: #38bdf8 !important;
+.nav-card-icon {
+    background: rgba(var(--rgb-bg), 0.1) !important;
+    color: var(--primary) !important;
 }
-.page-home .nav-card:hover .nav-card-icon {
-    background: rgba(56, 189, 248, 0.2) !important;
-}
-
-.page-about .nav-card-icon {
-    background: rgba(52, 211, 153, 0.1) !important;
-    color: #34d399 !important;
-}
-.page-about .nav-card:hover .nav-card-icon {
-    background: rgba(52, 211, 153, 0.2) !important;
-}
-
-.page-projects .nav-card-icon {
-    background: rgba(168, 85, 247, 0.1) !important;
-    color: #a855f7 !important;
-}
-.page-projects .nav-card:hover .nav-card-icon {
-    background: rgba(168, 85, 247, 0.2) !important;
-}
-
-.page-journal .nav-card-icon {
-    background: rgba(245, 158, 11, 0.1) !important;
-    color: #f59e0b !important;
-}
-.page-journal .nav-card:hover .nav-card-icon {
-    background: rgba(245, 158, 11, 0.2) !important;
-}
-
-.page-contact .nav-card-icon {
-    background: rgba(236, 72, 153, 0.1) !important;
-    color: #ec4899 !important;
-}
-.page-contact .nav-card:hover .nav-card-icon {
-    background: rgba(236, 72, 153, 0.2) !important;
+.nav-card:hover .nav-card-icon {
+    background: rgba(var(--rgb-bg), 0.2) !important;
 }
 
 /* ========================================
    FIX: ENTRY DATE COLORS
 ======================================== */
-.page-home .entry-date .day {
-    color: #38bdf8 !important;
-}
-.page-about .entry-date .day {
-    color: #34d399 !important;
-}
-.page-projects .entry-date .day {
-    color: #a855f7 !important;
-}
-.page-journal .entry-date .day {
-    color: #f59e0b !important;
-}
-.page-contact .entry-date .day {
-    color: #ec4899 !important;
+.entry-date .day {
+    color: var(--primary) !important;
 }
 
-.page-home .entry-date {
-    border-color: rgba(56, 189, 248, 0.15) !important;
-    background: rgba(56, 189, 248, 0.08) !important;
-}
-.page-about .entry-date {
-    border-color: rgba(52, 211, 153, 0.15) !important;
-    background: rgba(52, 211, 153, 0.08) !important;
-}
-.page-projects .entry-date {
-    border-color: rgba(168, 85, 247, 0.15) !important;
-    background: rgba(168, 85, 247, 0.08) !important;
-}
-.page-journal .entry-date {
-    border-color: rgba(245, 158, 11, 0.15) !important;
-    background: rgba(245, 158, 11, 0.08) !important;
-}
-.page-contact .entry-date {
-    border-color: rgba(236, 72, 153, 0.15) !important;
-    background: rgba(236, 72, 153, 0.08) !important;
+.entry-date {
+    border-color: var(--shadow-primary-color) !important;
+    background: rgba(var(--rgb-bg), 0.08) !important;
 }
 
 /* ========================================
@@ -3988,32 +3394,11 @@ body.menu-open {
     color: var(--bg) !important;
 }
 
-/* Outline button icons should match the button text */
-.btn-outline i,
-.btn-outline .btn-text i {
-    color: var(--text-muted) !important;
-}
-
-.btn-outline:hover i,
-.btn-outline:hover .btn-text i {
-    color: var(--primary) !important;
-}
-
 /* Next page nav buttons */
 .next-page-nav .btn-primary i,
 .next-page-nav .btn-primary .btn-text i {
     color: var(--bg) !important;
 }
-
-.next-page-nav .btn-outline i,
-.next-page-nav .btn-outline .btn-text i {
-    color: var(--text-muted) !important;
-}
-
-.next-page-nav .btn-outline:hover i {
-    color: var(--primary) !important;
-}
-
 /* Submit button icons */
 .btn-submit i,
 .btn-submit .btn-text i {
@@ -4025,80 +3410,86 @@ body.menu-open {
 .section-footer .btn-primary .btn-text i {
     color: var(--bg) !important;
 }
-
-.section-footer .btn-outline i,
-.section-footer .btn-outline .btn-text i {
-    color: var(--text-muted) !important;
-}
-
-.section-footer .btn-outline:hover i {
-    color: var(--primary) !important;
-}
-
 /* Project links buttons */
 .project-links .btn-primary i,
 .project-links .btn-primary .btn-text i {
     color: var(--bg) !important;
 }
-
-.project-links .btn-outline i,
-.project-links .btn-outline .btn-text i {
-    color: var(--text-muted) !important;
-}
-
-.project-links .btn-outline:hover i {
-    color: var(--primary) !important;
-}
-
 /* Hero buttons */
 .hero .btn-primary i,
 .hero .btn-primary .btn-text i {
     color: var(--bg) !important;
 }
-
-.hero .btn-outline i,
-.hero .btn-outline .btn-text i {
-    color: var(--text-muted) !important;
-}
-
-.hero .btn-outline:hover i {
-    color: var(--primary) !important;
-}
-
 /* Resource cards buttons */
 .resource-card .btn-primary i,
 .resource-card .btn-primary .btn-text i {
     color: var(--bg) !important;
 }
-
-.resource-card .btn-outline i,
-.resource-card .btn-outline .btn-text i {
-    color: var(--text-muted) !important;
-}
-
-.resource-card .btn-outline:hover i {
-    color: var(--primary) !important;
-}
-
 /* Contact buttons */
 .intro-actions .btn-primary i,
 .intro-actions .btn-primary .btn-text i {
     color: var(--bg) !important;
 }
+/* Download buttons */
+.btn-download i {
+    color: var(--bg) !important;
+}
 
+/* Outline button icons should match the button text */
+.btn-outline i,
+.btn-outline .btn-text i {
+    color: var(--text-muted) !important;
+}
+.next-page-nav .btn-outline i,
+.next-page-nav .btn-outline .btn-text i {
+    color: var(--text-muted) !important;
+}
+
+.section-footer .btn-outline i,
+.section-footer .btn-outline .btn-text i {
+    color: var(--text-muted) !important;
+}
+.project-links .btn-outline i,
+.project-links .btn-outline .btn-text i {
+    color: var(--text-muted) !important;
+}
+.hero .btn-outline i,
+.hero .btn-outline .btn-text i {
+    color: var(--text-muted) !important;
+}
+.resource-card .btn-outline i,
+.resource-card .btn-outline .btn-text i {
+    color: var(--text-muted) !important;
+}
 .intro-actions .btn-outline i,
 .intro-actions .btn-outline .btn-text i {
     color: var(--text-muted) !important;
 }
 
+.btn-outline:hover i,
+.btn-outline:hover .btn-text i {
+    color: var(--primary) !important;
+}
+.next-page-nav .btn-outline:hover i {
+    color: var(--primary) !important;
+}
+.section-footer .btn-outline:hover i {
+    color: var(--primary) !important;
+}
+.project-links .btn-outline:hover i {
+    color: var(--primary) !important;
+}
+.hero .btn-outline:hover i {
+    color: var(--primary) !important;
+}
+.resource-card .btn-outline:hover i {
+    color: var(--primary) !important;
+}
 .intro-actions .btn-outline:hover i {
     color: var(--primary) !important;
 }
 
-/* Download buttons */
-.btn-download i {
-    color: var(--bg) !important;
-}
+
 
 .page-projects .intro-title { color: #a855f7 !important; }
 .page-journal .intro-title { color: #f59e0b !important; }
