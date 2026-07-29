@@ -24,30 +24,6 @@ if (scrollProgress) {
 }
 
 // =========================
-// Scroll Reveal Animation
-// =========================
-const hiddenElements = $$('.hidden');
-
-if (hiddenElements.length) {
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                // Unobserve after reveal for better performance
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-    });
-    
-    hiddenElements.forEach((element) => {
-        revealObserver.observe(element);
-    });
-}
-
-// =========================
 // Active Navigation Link
 // =========================
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';

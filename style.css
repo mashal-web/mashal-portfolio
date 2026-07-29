@@ -47,7 +47,7 @@
     --shadow-primary: 0 8px 20px rgba(56, 189, 248, 0.3);
     --shadow-primary-color: rgba(56, 189, 248, 0.15);
     --rgb-bg: rgb(56, 189, 248);
-
+    --navlinks-bg: rgba(15, 23, 42, 0.9);
 }
 
 /* ===== PAGE: ABOUT ===== */
@@ -63,6 +63,7 @@
     --shadow-primary: 0 8px 20px rgba(52, 211, 153, 0.3);
     --shadow-primary-color: rgba(52, 211, 153, 0.15);
     --rgb-bg: rgb(52, 211, 153);
+    --navlinks-bg: rgba(10, 26, 18, 0.9);
 }
 
 /* ===== PAGE: PROJECTS ===== */
@@ -78,6 +79,7 @@
     --shadow-primary: 0 8px 20px rgba(168, 85, 247, 0.3);
     --shadow-primary-color: rgba(168, 85, 247, 0.15);
     --rgb-bg: rgb(168, 85, 247);
+    --navlinks-bg: rgb(18, 10, 30, 0.9);
 }
 
 /* ===== PAGE: JOURNAL ===== */
@@ -93,6 +95,7 @@
     --shadow-primary: 0 8px 20px rgba(245, 158, 11, 0.3);
     --shadow-primary-color: rgba(245, 158, 11, 0.15);
     --rgb-bg: rgb(245, 158, 11);
+    --navlinks-bg: rgba(18, 16, 10, 0.9);
 }
 
 /* ===== PAGE: CONTACT ===== */
@@ -108,6 +111,7 @@
     --shadow-primary: 0 8px 20px rgba(236, 72, 153, 0.3);
     --shadow-primary-color: rgba(236, 72, 153, 0.15);
     --rgb-bg: rgb(236, 72, 153);
+    --navlinks-bg: rgba(20, 10, 16, 0.9);
 }
 /* =========================
    Reset & Base
@@ -2072,20 +2076,6 @@ section {
 }
 
 /* =========================
-   Scroll Animation
-========================= */
-.hidden {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =========================
    Focus States
 ========================= */
 :focus-visible {
@@ -2687,13 +2677,15 @@ body.menu-open {
     .nav-links {
         position: absolute;
         top: calc(100% + 12px);
-        left: 0;
-        width: 100%;
+        right: 0;
+        left: auto;
+        width: auto;
+        min-height: 200px;
+        max-width: 280px;
         flex-direction: column;
         gap: 1rem;
         padding: 1.5rem;
-        background: rgba(15, 23, 42, 0.95);
-        backdrop-filter: blur(18px);
+        background: var(--navlinks-bg);
         border: 1px solid var(--border);
         border-radius: var(--radius-md);
         box-shadow: var(--shadow-lg);
@@ -2709,11 +2701,20 @@ body.menu-open {
         transform: translateY(0);
     }
     
-    .nav-links a {
-        width: 100%;
-        text-align: center;
-        padding: 12px 0;
+    .nav-links li {
+        margin: 0;
+        padding: 0;
     }
+    .nav-links a {
+        padding: 10px 20px;
+        margin: 0;
+        width: 100%;
+        text-align: left;
+        font-size: 0.9rem;
+        border-radius: var(--radius-sm);
+        transition: all var(--transition);
+    }
+    .nav-links a::after {display: none;}
     
     .hero-socials a {
         padding: 4px 8px;
@@ -3203,10 +3204,6 @@ body.menu-open {
         scroll-behavior: auto !important;
     }
     
-    .hidden {
-        opacity: 1 !important;
-        transform: none !important;
-    }
     
     .card:hover {
         transform: none !important;
