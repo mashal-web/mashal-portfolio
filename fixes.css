@@ -1,0 +1,11 @@
+/* Post-audit fixes */
+.card {
+    background: rgba(30, 41, 59, 0.3);
+    background: color-mix(in srgb, var(--surface) 30%, transparent);
+}
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+}
