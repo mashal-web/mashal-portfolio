@@ -408,7 +408,7 @@ section {
    Cards
 ========================= */
 .card {
-    background: rgba((--surface),0.3);
+    background: var(--surface);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border);
@@ -996,15 +996,15 @@ section {
 
 .form-status.success {
     display: block;
-    background: rgba(34, 197, 94, 0.15);
-    border: 1px solid rgba(34, 197, 94, 0.3);
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid #dedede;
     color: #111111;
 }
 
 .form-status.error {
     display: block;
-    background: rgba(239, 68, 68, 0.15);
-    border: 1px solid rgba(239, 68, 68, 0.3);
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid #999999;
     color: #555555;
 }
 
@@ -1384,7 +1384,7 @@ section {
 .location-icon i { color: var(--primary) }
 
 .availability-icon {
-    background: rgba(251, 191, 36, 0.1);
+    background: rgba(0, 0, 0, 0.04);
     color: #444444;
 }
 .availability-icon i { color: #444444; }
@@ -1599,17 +1599,17 @@ section {
 
 .status-dot.available {
     background: #111111;
-    box-shadow: 0 0 12px rgba(74, 222, 128, 0.4);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
 }
 
 .status-dot.busy {
     background: #555555;
-    box-shadow: 0 0 12px rgba(248, 113, 113, 0.4);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
 }
 
 .status-dot.soon {
     background: #444444;
-    box-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
 }
 
 .status-label {
@@ -2382,13 +2382,13 @@ body.menu-open {
 }
 
 .page-home .hero-tag {
-    border-color: rgba(56, 189, 248, 0.25) !important;
-    background: rgba(56, 189, 248, 0.08) !important;
+    border-color: #dedede !important;
+    background: rgba(0, 0, 0, 0.04) !important;
 }
 
 .page-home .intro-badge {
     border-color: var(--shadow-primary-color) !important;
-    background: rgba(56, 189, 248, 0.08) !important;
+    background: rgba(0, 0, 0, 0.04) !important;
 }
 
 .btn-submit {
@@ -2398,17 +2398,17 @@ body.menu-open {
 .page-home .form-group input:focus,
 .page-home .form-group textarea:focus {
     border-color: var(--primary) !important;
-    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.08) !important;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.04) !important;
 }
 
 .btn-outline:hover {
     color: var(--primary) !important;
-    background: rgba(var(--rgb-bg) 0.1) !important;
+    background: rgba(var(--rgb-bg), 0.1) !important;
 }
 
 .hero-tag {
-    border-color: rgba(var(--rgb-bg) 0.25) !important;
-    background: rgba(var(--rgb-bg) 0.08) !important;
+    border-color: rgba(var(--rgb-bg), 0.25) !important;
+    background: rgba(var(--rgb-bg), 0.08) !important;
 }
 
 .intro-badge {
