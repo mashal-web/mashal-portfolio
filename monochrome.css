@@ -60,6 +60,8 @@ body[class*="page-"] {
   background: #ffffff !important;
   border: 1px solid #dedede !important;
   box-shadow: 5px 5px 14px rgba(0,0,0,.055), -5px -5px 14px rgba(255,255,255,.95) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 .card p, .intro-description, .hero-description, .contact-text,
 .journal-preview-card p, .project-card p, .availability-card p {
