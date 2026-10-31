@@ -247,3 +247,11 @@ progress.scroll-progress::-moz-progress-bar { background: #111; }
 
 /* Keep small secondary labels above WCAG AA contrast on white surfaces. */
 .contact-note { color: #626262 !important; }
+
+/* A solid, bordered control avoids the legacy blur and invalid border shorthand. */
+#backToTop {
+  background: #ffffff !important;
+  border: 1px solid #dedede !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
