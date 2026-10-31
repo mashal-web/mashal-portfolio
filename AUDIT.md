@@ -48,7 +48,7 @@
 - [x] Chromium checks found no broken images, JavaScript exceptions, or console errors in the five primary pages.
 - [x] Mobile hamburger open/Escape-close behaviour, empty-form native validation, and back-to-top visibility/scroll behaviour passed in the successful run.
 - [x] axe-core accessibility scans passed at 390px and 1440px for all five primary pages after fixing the reported contrast, landmark, and accessible-name issues.
-- [ ] Re-run browser checks against the very latest commit, including the added browser-history and 404 recovery assertions.
+- [x] Re-ran browser checks against the latest source commit; browser history and 404 recovery assertions passed.
 - [ ] Full manual keyboard-only and screen-reader testing in a browser (automated axe scans are not a substitute).
 - [ ] HTML/CSS validator and Lighthouse/Core Web Vitals measurements.
 - [ ] Contact form delivery to the configured Formspree endpoint; requires an actual submission and service access.
@@ -63,7 +63,7 @@
 - Workflow: `.github/workflows/qa.yml` (pull requests targeting `main` and manual dispatch).
 - Static checks use Python's standard library and Node's syntax checker.
 - Browser checks install Playwright and axe-core into a temporary runner directory; no frontend dependencies are added to the website.
-- Successful browser/static run: `https://github.com/mashal-web/mashal-portfolio/actions/runs/41246963428`.
+- Successful browser/static run on the latest source commit: `https://github.com/mashal-web/mashal-portfolio/actions/runs/41247111747` (50 viewport combinations, zero failures).
 
 ## Working branch
 - `audit/production-hardening-2026-11`
