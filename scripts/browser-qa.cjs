@@ -77,6 +77,35 @@ const record = (page, width, issue) => failures.push({ page, width, issue });
       }
     }
 
+    // Verify normal internal navigation and browser back/forward history.
+    {
+      const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+      const page = await context.newPage();
+      await page.goto(base + "/index.html", { waitUntil: "networkidle" });
+      await page.locator('.nav-links a[href="projects.html"]').click();
+      await page.waitForURL("**/projects.html");
+      if (!(await page.locator('.nav-links a[href="projects.html"]').getAttribute("aria-current") === "page")) {
+        record("projects.html", 1440, "Navigation did not mark the destination as current");
+      }
+      await page.goBack();
+      await page.waitForURL("**/index.html");
+      await page.goForward();
+      await page.waitForURL("**/projects.html");
+      await context.close();
+    }
+
+    // Verify the custom 404 page offers a working route back to the site.
+    {
+      const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+      const page = await context.newPage();
+      const response = await page.goto(base + "/404.html", { waitUntil: "networkidle" });
+      if (!response || response.status() >= 400) record("404.html", 1280, "Custom 404 page did not load");
+      if (!(await page.locator("main h1").count())) record("404.html", 1280, "404 page is missing its heading");
+      await page.locator('a[href="index.html"]').click();
+      await page.waitForURL("**/index.html");
+      await context.close();
+    }
+
     // Verify back-to-top behaviour on a long page at desktop and mobile widths.
     for (const width of [390, 1440]) {
       const context = await browser.newContext({ viewport: { width, height: 800 }, reducedMotion: "reduce" });
