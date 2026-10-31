@@ -233,3 +233,12 @@ progress.scroll-progress::-moz-progress-bar { background: #111; }
 .error-page { min-height:100vh; display:flex; align-items:center; padding:4rem 0; }
 .error-page .container { width:min(900px,calc(100% - 2.5rem)); margin-inline:auto; }
 .error-navigation { display:flex; flex-wrap:wrap; gap:1.5rem; margin-top:2rem; }
+
+/* The legacy icon font was removed; keep the back-to-top control visibly identifiable. */
+#backToTop::before {
+  content: "↑";
+  display: block;
+  color: #111111;
+  font-size: 1.5rem;
+  line-height: 1;
+}
