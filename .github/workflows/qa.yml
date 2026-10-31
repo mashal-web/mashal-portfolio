@@ -2,6 +2,8 @@ name: Portfolio QA
 on:
   pull_request:
     branches: [main]
+    paths-ignore:
+      - 'AUDIT.md'
   workflow_dispatch:
 
 concurrency:
