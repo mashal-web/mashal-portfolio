@@ -1,15 +1,15 @@
 /* =========================
    Font Import
 ========================= */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+400;500;600;700&display=swap');
 
 /* =========================
    CSS Variables - Base Theme
 ========================= */
 :root {
     /* Base Colors - Dark Theme */
-    --text: #f8fafc;
-    --text-muted: #94a3b8;
+    --text: #151515;
+    --text-muted: #666666;
     --border: rgba(255, 255, 255, 0.08);
     
     /* Spacing */
@@ -34,85 +34,7 @@
     --transition-slow: 0.5s ease;
 }
 
-/* ===== PAGE: HOME ===== */
-.page-home {
-    --primary: #38bdf8;
-    --primary-hover: #0ea5e9;
-    --bg: #0f172a;
-    --bg-glass: rgba(15, 23, 42, 0.1);
-    --surface: #1e293b;
-    --surface-light: #334155;
-    --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.25);
-    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.35);
-    --shadow-primary: 0 8px 20px rgba(56, 189, 248, 0.3);
-    --shadow-primary-color: rgba(56, 189, 248, 0.15);
-    --rgb-bg: rgb(56, 189, 248);
-    --navlinks-bg: rgba(15, 23, 42, 0.9);
-}
-
-/* ===== PAGE: ABOUT ===== */
-.page-about {
-    --primary: #34d399;
-    --primary-hover: #10b981;
-    --bg: #0a1a12;
-    --bg-glass: rgba(10, 26, 18, 0.1);
-    --surface: #0f2a1a;
-    --surface-light: #1a3a28;
-    --shadow-md: 0 12px 30px rgba(10, 26, 18, 0.25);
-    --shadow-lg: 0 20px 50px rgba(0, 20, 10, 0.35);
-    --shadow-primary: 0 8px 20px rgba(52, 211, 153, 0.3);
-    --shadow-primary-color: rgba(52, 211, 153, 0.15);
-    --rgb-bg: rgb(52, 211, 153);
-    --navlinks-bg: rgba(10, 26, 18, 0.9);
-}
-
-/* ===== PAGE: PROJECTS ===== */
-.page-projects {
-    --primary: #a855f7;
-    --primary-hover: #8b5cf6;
-    --bg: #120a1e;
-    --bg-glass: rgba(18, 10, 30, 0.1);
-    --surface: #1e1030;
-    --surface-light: #2e1a45;
-    --shadow-md: 0 12px 30px rgba(18, 10, 30, 0.25);
-    --shadow-lg: 0 20px 50px rgba(10, 0, 20, 0.35);
-    --shadow-primary: 0 8px 20px rgba(168, 85, 247, 0.3);
-    --shadow-primary-color: rgba(168, 85, 247, 0.15);
-    --rgb-bg: rgb(168, 85, 247);
-    --navlinks-bg: rgb(18, 10, 30, 0.9);
-}
-
-/* ===== PAGE: JOURNAL ===== */
-.page-journal {
-    --primary: #f59e0b;
-    --primary-hover: #d97706;
-    --bg: #12100a;
-    --bg-glass: rgba(18, 16, 10, 0.1);
-    --surface: #1f1a0f;
-    --surface-light: #2f251a;
-    --shadow-md: 0 12px 30px rgba(18, 16, 10, 0.25);
-    --shadow-lg: 0 20px 50px rgba(20, 15, 0, 0.35);
-    --shadow-primary: 0 8px 20px rgba(245, 158, 11, 0.3);
-    --shadow-primary-color: rgba(245, 158, 11, 0.15);
-    --rgb-bg: rgb(245, 158, 11);
-    --navlinks-bg: rgba(18, 16, 10, 0.9);
-}
-
-/* ===== PAGE: CONTACT ===== */
-.page-contact {
-    --primary: #ec4899;
-    --primary-hover: #db2777;
-    --bg: #140a10;
-    --bg-glass: rgba(20, 10, 16, 0.1);
-    --surface: #220f1a;
-    --surface-light: #321a28;
-    --shadow-md: 0 12px 30px rgba(20, 10, 16, 0.25);
-    --shadow-lg: 0 20px 50px rgba(20, 0, 10, 0.35);
-    --shadow-primary: 0 8px 20px rgba(236, 72, 153, 0.3);
-    --shadow-primary-color: rgba(236, 72, 153, 0.15);
-    --rgb-bg: rgb(236, 72, 153);
-    --navlinks-bg: rgba(20, 10, 16, 0.9);
-}
+/* Page palette is defined in monochrome.css. */
 /* =========================
    Reset & Base
 ========================= */
@@ -136,14 +58,7 @@ body {
     min-height: 100dvh;
     min-height: -webkit-fill-available;
 
-    background: 
-        radial-gradient(circle at 20% 50%, var(--shadow-primary-color), transparent 60%),
-        radial-gradient(circle at 80% 50%, var(--shadow-primary-color), transparent 60%),
-        url("assets/images/background.png");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    background-color: var(--bg);
 
     font-family: 'Poppins', sans-serif;
     color: var(--text);
@@ -1086,14 +1001,14 @@ section {
     display: block;
     background: rgba(34, 197, 94, 0.15);
     border: 1px solid rgba(34, 197, 94, 0.3);
-    color: #4ade80;
+    color: #111111;
 }
 
 .form-status.error {
     display: block;
     background: rgba(239, 68, 68, 0.15);
     border: 1px solid rgba(239, 68, 68, 0.3);
-    color: #f87171;
+    color: #555555;
 }
 
 .spinner-small {
@@ -1346,7 +1261,7 @@ section {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    background: #ffffff;
     opacity: 0;
     transition: opacity var(--transition);
 }
@@ -1473,22 +1388,22 @@ section {
 
 .availability-icon {
     background: rgba(251, 191, 36, 0.1);
-    color: #fbbf24;
+    color: #444444;
 }
-.availability-icon i { color: #fbbf24; }
+.availability-icon i { color: #444444; }
 
 .status-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: #4ade80;
+    color: #111111;
 }
 
 .status-dot {
     display: inline-block;
     width: 8px;
     height: 8px;
-    background: #4ade80;
+    background: #111111;
     border-radius: 50%;
     animation: pulse-dot 2s ease-in-out infinite;
 }
@@ -1550,12 +1465,12 @@ section {
     border-color: #ffffff;
 }
 .social-link.linkedin:hover {
-    color: #0a66c2;
-    border-color: #0a66c2;
+    color: #111111;
+    border-color: #111111;
 }
 .social-link.twitter:hover {
-    color: #1da1f2;
-    border-color: #1da1f2;
+    color: #111111;
+    border-color: #111111;
 }
 .social-link.email:hover {
     color: var(--primary);
@@ -1653,7 +1568,7 @@ section {
 }
 
 .social-card.github i { color: #ffffff; }
-.social-card.linkedin i { color: #0a66c2; }
+.social-card.linkedin i { color: #111111; }
 .social-card.email i { color: var(--primary); }
 
 
@@ -1686,17 +1601,17 @@ section {
 }
 
 .status-dot.available {
-    background: #4ade80;
+    background: #111111;
     box-shadow: 0 0 12px rgba(74, 222, 128, 0.4);
 }
 
 .status-dot.busy {
-    background: #f87171;
+    background: #555555;
     box-shadow: 0 0 12px rgba(248, 113, 113, 0.4);
 }
 
 .status-dot.soon {
-    background: #fbbf24;
+    background: #444444;
     box-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
 }
 
@@ -2359,11 +2274,11 @@ body.menu-open {
 }
 
 .hero-socials a .fa-linkedin:hover {
-    color: #0a66c2;
+    color: #111111;
 }
 
 .hero-socials a .fa-envelope:hover {
-    color: #ea4335;
+    color: #444444;
 }
 
 .timeline-dot {
@@ -2426,7 +2341,7 @@ body.menu-open {
 /* ---------- PAGE: HOME (Sky Blue) ---------- */
 
 .scroll-progress {
-    background: linear-gradient(to right, var(--primary), var(--primary-hover));
+    background: #111111;
 }
 
 .section-title,
@@ -2480,7 +2395,7 @@ body.menu-open {
 }
 
 .btn-submit {
-    background: linear-gradient(135deg, var(--primary), var(--primary-hover)) !important;
+    background: #111111 !important;
 }
 
 .page-home .form-group input:focus,
@@ -2505,7 +2420,7 @@ body.menu-open {
 }
 
 .btn-submit {
-    background: linear-gradient(135deg, var(--primary), var(--primary-hover)) !important;
+    background: #111111 !important;
 }
 
 .form-group input:focus,
@@ -3175,9 +3090,9 @@ body.menu-open {
     }
     
     .card {
-        background: #f5f5f5 !important;
+        background: #f4f4f2 !important;
         color: black !important;
-        border: 1px solid #ddd !important;
+        border: 1px solid #dedede !important;
         box-shadow: none !important;
     }
     
@@ -3232,10 +3147,10 @@ body.menu-open {
 @media (prefers-contrast: high) {
     :root {
         --bg: #000000;
-        --surface: #1a1a1a;
+        --surface: #151515;
         --border: rgba(255, 255, 255, 0.3);
         --text: #ffffff;
-        --text-muted: #cccccc;
+        --text-muted: #cfcfcf;
     }
 }
 
@@ -3321,7 +3236,7 @@ body.menu-open {
    FIX: PROGRESS BAR COLORS
 ======================================== */
 .progress {
-    background: linear-gradient(to right, var(--primary), var(--primary-hover)) !important;
+    background: #111111 !important;
 }
 
 /* ========================================
@@ -3492,7 +3407,7 @@ body.menu-open {
 
 
 
-.page-projects .intro-title { color: #a855f7 !important; }
-.page-journal .intro-title { color: #f59e0b !important; }
-.page-contact .intro-title{ color: #ec4899 !important; }
-.contact-home .btn-primary i { color: #0f172a !important; }
+.page-projects .intro-title { color: #111111 !important; }
+.page-journal .intro-title { color: #111111 !important; }
+.page-contact .intro-title{ color: #111111 !important; }
+.contact-home .btn-primary i { color: #f4f4f2 !important; }

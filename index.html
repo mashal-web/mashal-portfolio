@@ -4,46 +4,38 @@
     <!-- Meta Information -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mashal Khan - Computer Science student specializing in AI, Cybersecurity, and Web Development.">
-    <meta name="keywords" content="AI, Cybersecurity, Web Development, Python, Portfolio, Mashal Khan">
+    <meta name="description" content="Mashal Khan, Civil Engineering student. A monochrome portfolio documenting academic interests, learning, and engineering work.">
+    <meta name="keywords" content="Mashal Khan, Civil Engineering, Engineering Portfolio, Structural Engineering, Construction, Technical Learning">
     <meta name="author" content="Mashal Khan">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Mashal Khan | AI & Cybersecurity Enthusiast">
-    <meta property="og:description" content="Computer Science student specializing in AI, Cybersecurity, and Web Development.">
+    <meta property="og:title" content="Mashal Khan | Civil Engineering Portfolio">
+    <meta property="og:description" content="Mashal Khan, Civil Engineering student. A monochrome portfolio documenting academic interests, learning, and engineering work.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mashal-web.github.io/mashal-portfolio/">
-    <meta property="og:image" content="https://mashal-web.github.io/mashal-portfolio/assets/images/og-image.jpg">
-    
-    <!-- Twitter Card -->
+<!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mashal Khan | AI & Cybersecurity Enthusiast">
-    <meta name="twitter:description" content="Computer Science student specializing in AI, Cybersecurity, and Web Development.">
+    <meta name="twitter:title" content="Mashal Khan | Civil Engineering Portfolio">
+    <meta name="twitter:description" content="Mashal Khan, Civil Engineering student. A monochrome portfolio documenting academic interests, learning, and engineering work.">
     
     <!-- Theme Color -->
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#f4f4f2">
     
-    <title>Mashal Khan | AI & Cybersecurity Enthusiast</title>
+    <title>Mashal Khan | Civil Engineering Portfolio</title>
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="monochrome.css">
+    <link rel="canonical" href="https://mashal-web.github.io/mashal-portfolio/">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-    
     <!-- Preconnect for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="page-home">
     <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <progress class="scroll-progress" value="0" max="100" aria-label="Page scroll progress"></progress>
     
     <!-- Skip to Content -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -53,16 +45,16 @@
         <nav class="navbar" aria-label="Main navigation">
             <div class="logo">
                 <a href="index.html" aria-label="Homepage">
-                    <i class="fas fa-code"></i> Mashal Khan
+                    Mashal Khan
                 </a>
             </div>
-            <ul class="nav-links" role="menubar">
-                <li role="none"><a href="about.html" role="menuitem"><i class="fas fa-user"></i> About</a></li>
-                <li role="none"><a href="projects.html" role="menuitem"><i class="fas fa-folder-open"></i> Projects</a></li>
-                <li role="none"><a href="journal.html" role="menuitem"><i class="fas fa-pen-to-square"></i> Journal</a></li>
-                <li role="none"><a href="contact.html" role="menuitem"><i class="fas fa-envelope"></i> Contact</a></li>
+            <ul class="nav-links" id="primary-navigation">
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="journal.html">Journal</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
-            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <button type="button" class="hamburger" aria-label="Toggle navigation menu" aria-controls="primary-navigation" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -71,204 +63,59 @@
     </header>
     
     <main id="main-content">
-
-        <!-- ========== 1. HERO SECTION ========== -->
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-image">
-                <img src="assets/images/profile.png" alt="Mashal Khan - Profile Photo" loading="eager" width="200" height="200">
-            </div>
-            <div class="hero-content">
-                <p class="hero-tag">
-                    <i class="fas fa-robot" aria-hidden="true"></i> AI & Cybersecurity Student
-                </p>
-                <h1 id="hero-title">Mashal Khan</h1>
-                <p class="hero-description">
-                    Building secure, intelligent, and modern web experiences while continuously learning Computer Science.
-                </p>
-                <div class="buttons">
-                    <a href="projects.html" class="btn btn-primary">
-                        <i class="fas fa-project-diagram" aria-hidden="true"></i> View Projects
-                    </a>
-                    <a href="contact.html" class="btn btn-outline">
-                        <i class="fas fa-paper-plane" aria-hidden="true"></i> Contact Me
-                    </a>
-                </div>
-                <div class="hero-socials">
-                    <a href="https://github.com/mashal-web" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        <i class="fab fa-github" aria-hidden="true"></i> GitHub
-                    </a>
-                    <a href="https://linkedin.com/in/mashalweb" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
-                    </a>
-                    <a href="mailto:imashalweb@gmail.com" aria-label="Email">
-                        <i class="fas fa-envelope" aria-hidden="true"></i> Email
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== 2. QUICK INTRODUCTION ========== -->
-        <section id="intro" class="intro">
-            <div class="container">
-                <h2 class="section-title">
-                    <i class="fas fa-user-astronaut"></i> About Me
-                </h2>
-                <div class="intro-content">
-                    <p class="intro-text">
-                        Hello! I'm <strong>Mashal Khan</strong>, a Computer Science student with a unique background 
-                        in Medical Sciences. I'm deeply fascinated by <strong>Artificial Intelligence</strong>, 
-                        <strong>Cybersecurity</strong>, and <strong>software development</strong>.
-                    </p>
-                    <a href="about.html" class="btn btn-outline">
-                        <i class="fas fa-arrow-right"></i> Read More About Me
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== 3. FEATURED PROJECTS ========== -->
-        <section id="featured-projects" class="featured-projects">
-            <div class="container">
-                <h2 class="section-title">
-                    <i class="fas fa-folder-open"></i> Featured Projects
-                </h2>
-                <div class="project-cards">
-                    <a href="projects.html#active-projects" class="project-card-link">
-                        <div class="card">
-                            <h3><i class="fas fa-code"></i> Current Projects</h3>
-                            <p>What I'm actively building right now to strengthen my skills.</p>
-                            <span class="card-tag">3 in progress</span>
-                        </div>
-                    </a>
-                    <a href="projects.html#future-projects" class="project-card-link">
-                        <div class="card">
-                            <h3><i class="fas fa-lightbulb"></i> Future Ideas</h3>
-                            <p>Projects I'm planning to build as I learn more in AI and cybersecurity.</p>
-                            <span class="card-tag">4 planned</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="section-footer">
-                    <a href="projects.html" class="btn btn-primary">
-                        <i class="fas fa-arrow-right"></i> View All Projects
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== 4. LATEST JOURNAL ========== -->
-        <section id="latest-journal" class="latest-journal">
-            <div class="container">
-                <h2 class="section-title">
-                    <i class="fas fa-pen-to-square"></i> Latest Journal
-                </h2>
-                <div class="journal-preview-grid">
-                    <div class="card journal-preview-card">
-                        <h3><i class="fas fa-globe"></i> My First Website</h3>
-                        <p>
-                            I realized I didn't want just another portfolio. I wanted a
-                            website that could grow with me throughout university and beyond.
-                        </p>
-                        <span class="journal-date"><i class="far fa-calendar-alt"></i> Coming Soon</span>
-                    </div>
-                    <div class="card journal-preview-card">
-                        <h3><i class="fas fa-graduation-cap"></i> My University Journey</h3>
-                        <p>
-                            I'll share my university experiences, challenges, and lessons
-                            as I begin this new chapter.
-                        </p>
-                        <span class="journal-date"><i class="far fa-calendar-alt"></i> Coming Soon</span>
-                    </div>
-                </div>
-                <div class="section-footer">
-                    <a href="journal.html" class="btn btn-primary">
-                        <i class="fas fa-arrow-right"></i> Read All Journal Entries
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== 5. CURRENTLY EXPLORING ========== -->
-        <section id="exploring" class="exploring">
-            <div class="container">
-                <h2 class="section-title">
-                    <i class="fas fa-compass"></i> Currently Exploring
-                </h2>
-                <div class="exploring-grid">
-                    <div class="card exploring-card">
-                        <div class="exploring-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <h3>Web Development</h3>
-                        <p>Building responsive websites with HTML, CSS, JavaScript, and React.</p>
-                        <span class="exploring-progress" style="--progress: 70%;">70%</span>
-                    </div>
-                    <div class="card exploring-card">
-                        <div class="exploring-icon">
-                            <i class="fab fa-python"></i>
-                        </div>
-                        <h3>Python</h3>
-                        <p>Learning OOP, data structures, and building practical applications.</p>
-                        <span class="exploring-progress" style="--progress: 50%;">50%</span>
-                    </div>
-                    <div class="card exploring-card">
-                        <div class="exploring-icon">
-                            <i class="fas fa-shield-halved"></i>
-                        </div>
-                        <h3>Cybersecurity</h3>
-                        <p>Exploring networking, Linux, and security fundamentals.</p>
-                        <span class="exploring-progress" style="--progress: 30%;">30%</span>
-                    </div>
-                    <div class="card exploring-card">
-                        <div class="exploring-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3>Artificial Intelligence</h3>
-                        <p>Beginning my journey into AI and Machine Learning.</p>
-                        <span class="exploring-progress" style="--progress: 20%;">20%</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== 6. CONTACT SECTION ========== -->
-        <section id="contact-home" class="contact-home">
-            <div class="container">
-                <h2 class="section-title">
-                    <i class="fas fa-envelope"></i> Get In Touch
-                </h2>
-                <p class="contact-text">
-                    I'm currently learning Computer Science, Web Development, Artificial Intelligence and Cybersecurity. 
-                    Feel free to connect with me!
-                </p>
-                <div class="contact-buttons">
-                    <a href="contact.html" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Send Me a Message
-                    </a>
-                    <a href="mailto:imashalweb@gmail.com" class="btn btn-outline">
-                        <i class="fas fa-envelope"></i> Email Me Directly
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== NEXT PAGE NAVIGATION ===== -->
-        <div class="next-page-nav">
-            <a href="contact.html" class="btn btn-outline">
-                <i class="fas fa-arrow-left"></i> Contact
-            </a>
-            <span class="nav-divider">|</span>
-            <a href="about.html" class="btn btn-primary">
-                <i class="fas fa-arrow-right"></i> About
-            </a>
+    <section class="hero portfolio-hero" aria-labelledby="hero-title">
+        <div class="hero-image">
+            <img src="assets/images/profile.png" alt="Portrait of Mashal Khan" width="200" height="200" fetchpriority="high">
         </div>
+        <div class="hero-content">
+            <h1 id="hero-title">Mashal Khan</h1>
+        </div>
+    </section>
 
-    </main>
+    <section class="portfolio-section" aria-labelledby="intro-title">
+        <div class="container">
+            <p class="eyebrow">CIVIL ENGINEERING</p>
+            <h2 id="intro-title" class="section-title">A foundation built on curiosity.</h2>
+            <p class="section-lead">I am a Civil Engineering student documenting my academic journey, technical interests, and the process of learning how the built environment is designed and delivered.</p>
+            <a href="about.html" class="text-link">More about me <span aria-hidden="true">→</span></a>
+        </div>
+    </section>
+
+    <section class="portfolio-section" aria-labelledby="work-title">
+        <div class="container">
+            <div class="section-heading">
+                <div><p class="eyebrow">SELECTED WORK</p><h2 id="work-title" class="section-title">Engineering work</h2></div>
+                <a href="projects.html" class="text-link">Project archive <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="empty-state">
+                <span class="empty-index">01 / IN DEVELOPMENT</span>
+                <p>Engineering studies and project work will be published here as they are completed and documented. No placeholder projects or unverified achievements are presented.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio-section" aria-labelledby="journal-title">
+        <div class="container">
+            <div class="section-heading">
+                <div><p class="eyebrow">FIELD NOTES</p><h2 id="journal-title" class="section-title">Learning journal</h2></div>
+                <a href="journal.html" class="text-link">Open journal <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="section-lead">A space for technical notes, study reflections, design observations, and lessons gathered along the way.</p>
+        </div>
+    </section>
+
+    <section class="portfolio-section contact-strip" aria-labelledby="contact-title">
+        <div class="container">
+            <p class="eyebrow">GET IN TOUCH</p>
+            <h2 id="contact-title" class="section-title">Have a question or an idea?</h2>
+            <a href="contact.html" class="text-link">Contact Mashal <span aria-hidden="true">→</span></a>
+        </div>
+    </section>
+</main>
     
     <!-- Back to Top Button -->
     <button id="backToTop" title="Back to Top" aria-label="Scroll back to top">
-        <i class="fas fa-angle-up"></i>
-    </button>
+        </button>
     
     <!-- Footer -->
     <footer class="footer">
