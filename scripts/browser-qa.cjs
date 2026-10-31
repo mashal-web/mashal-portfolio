@@ -12,10 +12,11 @@ const record = (page, width, issue) => failures.push({ page, width, issue });
   try {
     for (const path of pages) {
       for (const width of viewports) {
-        const page = await browser.newPage({
+        const context = await browser.newContext({
           viewport: { width, height: 900 },
           reducedMotion: "reduce"
         });
+        const page = await context.newPage();
         const consoleErrors = [];
         const pageErrors = [];
         page.on("console", msg => { if (msg.type() === "error") consoleErrors.push(msg.text()); });
@@ -72,13 +73,14 @@ const record = (page, width, issue) => failures.push({ page, width, issue });
           }
         }
 
-        await page.close();
+        await context.close();
       }
     }
 
     // Verify back-to-top behaviour on a long page at desktop and mobile widths.
     for (const width of [390, 1440]) {
-      const page = await browser.newPage({ viewport: { width, height: 800 }, reducedMotion: "reduce" });
+      const context = await browser.newContext({ viewport: { width, height: 800 }, reducedMotion: "reduce" });
+      const page = await context.newPage();
       await page.goto(base + "/index.html", { waitUntil: "networkidle" });
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       await page.waitForTimeout(100);
