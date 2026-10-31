@@ -140,7 +140,7 @@ img { max-width: 100%; }
 .page-intro { padding: clamp(5rem, 10vw, 8rem) 0 2rem; background: transparent !important; }
 .eyebrow, .empty-index, .feature-number {
   display: block;
-  color: #777 !important;
+  color: #626262 !important;
   font-size: .72rem;
   font-weight: 600;
   letter-spacing: .16em;
@@ -244,3 +244,6 @@ progress.scroll-progress::-moz-progress-bar { background: #111; }
   font-size: 1.5rem;
   line-height: 1;
 }
+
+/* Keep small secondary labels above WCAG AA contrast on white surfaces. */
+.contact-note { color: #626262 !important; }
