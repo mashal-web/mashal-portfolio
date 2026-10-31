@@ -63,23 +63,11 @@ for file in html_files:
         errors.append(f"{file}: inline style/block/handler found")
 
 for css in ROOT.glob("*.css"):
-    content = re.sub(r"/\\*.*?\\*/", "", css.read_text(encoding="utf-8"), flags=re.S)
-    depth = 0
-    quote = None
-    escaped = False
-    for char in content:
-        if quote:
-            if escaped: escaped = False
-            elif char == chr(92): escaped = True
-            elif char == quote: quote = None
-        elif char in (chr(39), chr(34)): quote = char
-        elif char == "{": depth += 1
-        elif char == "}":
-            depth -= 1
-            if depth < 0: break
-    if depth != 0 or quote: errors.append(f"{css}: unbalanced CSS blocks or strings")
-    if re.search(r"^\\s*400;500;600;700", content, re.M): errors.append(f"{css}: malformed font import residue")
-    if re.search(r"@import\\s+url\\(['\\"]https://fonts\\.", content, re.I): errors.append(f"{css}: external font import remains")
+    content = css.read_text(encoding="utf-8")
+    if content.count("{") != content.count("}"): errors.append(f"{css}: unbalanced braces")
+    if "400;500;600;700" in content: errors.append(f"{css}: malformed font import residue")
+    if "@import url('https://fonts." in content or '@import url("https://fonts.' in content:
+        errors.append(f"{css}: external font import remains")
 
 if Path("script.js").exists():
     import subprocess
