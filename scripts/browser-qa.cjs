@@ -1,4 +1,5 @@
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || "playwright");
+const AxeBuilder = require(process.env.AXE_MODULE || "@axe-core/playwright").default;
 
 const base = "http://127.0.0.1:8000";
 const pages = ["index.html", "about.html", "projects.html", "journal.html", "contact.html"];
@@ -23,6 +24,8 @@ const record = (page, width, issue) => failures.push({ page, width, issue });
         const response = await page.goto(base + "/" + path, { waitUntil: "networkidle" });
         if (!response || response.status() >= 400) record(path, width, "HTTP response " + (response && response.status()));
         if (!(await page.locator("main h1").count())) record(path, width, "Missing main h1");
+        if (path !== "index.html" && !(await page.locator(".nav-links a[aria-current=page]").count())) record(path, width, "Current page is not identified in navigation");
+        if (path === "index.html" && (await page.locator(".nav-links a[aria-current=page]").count())) record(path, width, "Home page has an unexpected current navigation item");
 
         const dimensions = await page.evaluate(() => ({
           viewport: document.documentElement.clientWidth,
@@ -51,6 +54,13 @@ const record = (page, width, issue) => failures.push({ page, width, issue });
           }
         } else if (await hamburger.isVisible()) {
           record(path, width, "Desktop menu button unexpectedly visible");
+        }
+
+        if ([390, 1440].includes(width)) {
+          const accessibility = await new AxeBuilder({ page }).analyze();
+          for (const violation of accessibility.violations) {
+            record(path, width, "Accessibility " + violation.id + ": " + violation.nodes.map(n => n.target.join(" ")).join(", "));
+          }
         }
 
         if (path === "contact.html") {
