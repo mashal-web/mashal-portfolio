@@ -83,6 +83,8 @@ const record = (page, width, issue) => failures.push({ page, width, issue });
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       await page.waitForTimeout(100);
       const button = page.locator("#backToTop");
+      const glyph = await button.evaluate(el => getComputedStyle(el, "::before").content);
+      if (!glyph || glyph === "none" || glyph === "normal") record("index.html", width, "Back-to-top button has no visible glyph");
       if (!(await button.evaluate(el => el.classList.contains("show")))) record("index.html", width, "Back-to-top did not appear after scrolling");
       await button.click();
       await page.waitForTimeout(100);
