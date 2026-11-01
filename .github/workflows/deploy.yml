@@ -67,8 +67,8 @@ jobs:
               );
               core.info(`Cancelled stale Pages deployment ${staleSha}.`);
             } catch (error) {
-              if (error.status === 404) {
-                core.info('The stale Pages deployment is already cleared or no longer exists.');
+              if (error.status === 404 || /already cleared|it's finished|is finished/i.test(error.message || '')) {
+                core.info('The stale Pages deployment is already finished or cleared; continuing to deploy the latest commit.');
               } else {
                 throw error;
               }
