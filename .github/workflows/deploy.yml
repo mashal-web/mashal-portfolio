@@ -8,6 +8,7 @@ on:
 permissions:
   contents: read
   pages: write
+  deployments: write
   id-token: write
 
 concurrency:
@@ -30,6 +31,29 @@ jobs:
         with:
           path: .
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Clear stale in-progress Pages deployment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const staleSha = '9220d2459c50143439121cfa011fa723eaa74f69';
+            const { owner, repo } = context.repo;
+            const deployments = await github.paginate(github.rest.repos.listDeployments, {
+              owner, repo, environment: 'github-pages', per_page: 100
+            });
+            const stale = deployments.filter(d => d.sha === staleSha);
+            for (const deployment of stale) {
+              const statuses = await github.paginate(github.rest.repos.listDeploymentStatuses, {
+                owner, repo, deployment_id: deployment.id, per_page: 100
+              });
+              if (statuses.some(s => s.state === 'in_progress')) {
+                await github.rest.repos.createDeploymentStatus({
+                  owner, repo, deployment_id: deployment.id, state: 'inactive',
+                  description: 'Clearing stale deployment blocking the latest Pages release.'
+                });
+                core.info(`Marked stale deployment ${deployment.id} inactive.`);
+              }
+            }
+            if (stale.length === 0) core.info('No matching stale repository deployment found; continuing.');
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
