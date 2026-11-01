@@ -1,0 +1,49 @@
+name: Portfolio QA
+on:
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - 'AUDIT.md'
+  workflow_dispatch:
+
+concurrency:
+  group: portfolio-qa-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  static:
+    name: Static HTML, asset and syntax checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run repository checks
+        run: python3 scripts/static-qa.py
+
+  browser:
+    name: Chromium responsive and interaction checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Playwright in temporary directory
+        run: |
+          npm install --prefix /tmp/portfolio-qa --no-save playwright @axe-core/playwright
+          /tmp/portfolio-qa/node_modules/.bin/playwright install --with-deps chromium
+      - name: Start static site server
+        run: |
+          python3 -m http.server 8000 > /tmp/portfolio-server.log 2>&1 &
+          echo $! > /tmp/portfolio-server.pid
+      - name: Run responsive browser QA
+        env:
+          PLAYWRIGHT_MODULE: /tmp/portfolio-qa/node_modules/playwright
+          AXE_MODULE: /tmp/portfolio-qa/node_modules/@axe-core/playwright
+        run: node scripts/browser-qa.cjs

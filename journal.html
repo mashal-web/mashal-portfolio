@@ -4,35 +4,33 @@
     <!-- Meta Information -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mashal Khan - Learning journal documenting my journey in Computer Science, AI, and Cybersecurity.">
-    <meta name="keywords" content="AI, Cybersecurity, Web Development, Learning Journal, Mashal Khan">
+    <meta name="description" content="Engineering journal by Mashal Khan, documenting civil engineering studies, technical learning, and design explorations.">
+    <meta name="keywords" content="Mashal Khan, Civil Engineering, Engineering Portfolio, Structural Engineering, Construction, Technical Learning">
     <meta name="author" content="Mashal Khan">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Mashal Khan | Learning Journal">
-    <meta property="og:description" content="Documenting my journey in Computer Science, AI, and Cybersecurity.">
+    <meta property="og:title" content="Mashal Khan | Engineering Journal">
+    <meta property="og:description" content="Engineering journal by Mashal Khan, documenting civil engineering studies, technical learning, and design explorations.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mashal-web.github.io/mashal-portfolio/">
+    <meta property="og:url" content="https://mashal-web.github.io/mashal-portfolio/journal.html">
     
     <!-- Theme Color -->
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#f4f4f2">
     
-    <title>Mashal Khan | Learning Journal</title>
+    <title>Mashal Khan | Engineering Journal</title>
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="monochrome.css">
+    <link rel="canonical" href="https://mashal-web.github.io/mashal-portfolio/journal.html">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="page-journal">
     <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <progress class="scroll-progress" value="0" max="100" aria-hidden="true"></progress>
     
     <!-- Skip to Content -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -41,17 +39,17 @@
     <header>
         <nav class="navbar" aria-label="Main navigation">
             <div class="logo">
-                <a href="index.html" aria-label="Homepage">
-                    <i class="fas fa-code"></i> Mashal Khan
+                <a href="index.html">
+                    Mashal Khan
                 </a>
             </div>
-            <ul class="nav-links" role="menubar">
-                <li role="none"><a href="about.html" role="menuitem"><i class="fas fa-user"></i> About</a></li>
-                <li role="none"><a href="projects.html" role="menuitem"><i class="fas fa-folder-open"></i> Projects</a></li>
-                <li role="none"><a href="journal.html" class="active" role="menuitem"><i class="fas fa-pen-to-square"></i> Journal</a></li>
-                <li role="none"><a href="contact.html" role="menuitem"><i class="fas fa-envelope"></i> Contact</a></li>
+            <ul class="nav-links" id="primary-navigation">
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="journal.html" class="active">Journal</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
-            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <button type="button" class="hamburger" aria-label="Toggle navigation menu" aria-controls="primary-navigation" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -60,236 +58,28 @@
     </header>
 
     <main id="main-content">
-        
-        <!-- ===== JOURNAL INTRO ===== -->
-        <section class="page-intro">
-            <div class="container">
-                <div class="intro-content">
-                    <div class="intro-badge">
-                        <i class="fas fa-pen-to-square"></i> Learning Journal
-                    </div>
-                    <h1 class="intro-title">
-                        <i class="fas fa-pen-to-square"></i> My Learning Journal
-                    </h1>
-                    <p class="intro-description">
-                        Welcome to my learning journal—a space where I document the real, unfiltered journey of 
-                        transitioning from Medical Sciences to Computer Science. No polished tutorials here, 
-                        just honest reflections on what I'm building, struggling with, and slowly figuring out.
-                    </p>
-                    <p class="intro-description" style="margin-top: 10px;">
-                        I'm writing these entries for myself, but if they help someone else on a similar path, 
-                        that's a bonus. Expect code snippets, mistakes, small wins, and everything in between.
-                    </p>
-                </div>
-            
-                <!-- Clickable Navigation Cards - Compact -->
-                <div class="journal-nav">
-            <a href="#first-website" class="journal-nav-link">
-                <i class="fas fa-globe"></i> My First Website
-            </a>
-            <a href="#uni-journey" class="journal-nav-link">
-                <i class="fas fa-graduation-cap"></i> University Journey
-            </a>
-            <a href="#learning-js" class="journal-nav-link">
-                <i class="fab fa-js"></i> Learning JavaScript
-            </a>
-            <a href="#new" class="journal-nav-link">
-                <i class="fas fa-clock"></i> coming soon
-            </a>
+    <section class="page-intro">
+        <div class="container">
+            <p class="eyebrow">NOTES / 03</p>
+            <h1 class="intro-title">Engineering journal</h1>
+            <p class="intro-description">Observations, study notes, technical explanations, and reflections from the learning process.</p>
         </div>
+    </section>
+    <section class="portfolio-section">
+        <div class="container">
+            <div class="empty-state empty-state-large">
+                <span class="empty-index">FIELD NOTES / IN PREPARATION</span>
+                <h2>Useful notes, not filler.</h2>
+                <p>Entries will be added as topics are studied and the material can be explained accurately. The journal is intended to document concepts, calculations, design decisions, and lessons learned rather than publish placeholder articles.</p>
+                <a href="projects.html" class="text-link">View the project archive <span aria-hidden="true">→</span></a>
             </div>
-        </section>
-
-        <!-- ===== JOURNAL ENTRIES ===== -->
-        
-        <!-- Entry 1 -->
-        <article class="journal-entry" id="first-website">
-            <div class="container">
-                <div class="entry-card">
-                    <div class="entry-header">
-                        <div class="entry-date">
-                            <span class="day">15</span>
-                            <span class="month">Mar</span>
-                            <span class="year">2026</span>
-                        </div>
-                        <div class="entry-title-group">
-                            <h2>Building My First Website</h2>
-                            <div class="entry-meta">
-                                <span><i class="fas fa-tag"></i> Web Development</span>
-                                <span><i class="far fa-clock"></i> 5 min read</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="entry-body">
-                        <p>
-                            I finally did it. I built my first real website from scratch. 
-                            No templates, no drag-and-drop—just HTML, CSS, and a lot of googling.
-                        </p>
-                        <p>
-                            The hardest part wasn't the code. It was <strong>deciding what to put on the page.</strong>
-                            Do I show my medical background? My new CS journey? Both? 
-                            I realized my story is what makes me different. So I leaned into it.
-                        </p>
-                        <p>
-                            Things I learned this week:
-                        </p>
-                        <ul>
-                            <li>CSS Grid is a game-changer for layouts</li>
-                            <li>Flexbox is great for nav bars and cards</li>
-                            <li>JavaScript makes the site actually feel <em>alive</em></li>
-                            <li>Deploying on GitHub Pages is surprisingly easy</li>
-                        </ul>
-                        <p>
-                            I'm proud of how it's turning out. It's not perfect, but it's <strong>mine</strong>.
-                            And I'm excited to keep improving it.
-                        </p>
-                    </div>
-                    
-                    <div class="entry-footer">
-                        <div class="entry-tags">
-                            <span>#html</span>
-                            <span>#css</span>
-                            <span>#javascript</span>
-                            <span>#portfolio</span>
-                        </div>
-                        <div class="entry-actions">
-                            <button class="btn btn-outline" onclick="window.location.href='https://mashal-web.github.io/mashal-portfolio/'">
-                                <i class="fas fa-eye"></i> See it Live
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <!-- Entry 2 -->
-        <article class="journal-entry" id="uni-journey">
-            <div class="container">
-                <div class="entry-card">
-                    <div class="entry-header">
-                        <div class="entry-date">
-                            <span class="day">08</span>
-                            <span class="month">Mar</span>
-                            <span class="year">2026</span>
-                        </div>
-                        <div class="entry-title-group">
-                            <h2>Why I Switched from Medical to CS</h2>
-                            <div class="entry-meta">
-                                <span><i class="fas fa-tag"></i> Personal Journey</span>
-                                <span><i class="far fa-clock"></i> 4 min read</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="entry-body">
-                        <p>
-                            People often ask me: "Why leave medicine? You were already on that path."
-                            Here's the truth: I didn't leave medicine—I just found a different way to help.
-                        </p>
-                        <p>
-                            I loved biology. I loved understanding how the body works. But I also loved 
-                            <strong>logic, problem-solving, and building things</strong>. 
-                            When I discovered programming, something clicked.
-                        </p>
-                        <p>
-                            I realized that <strong>AI and cybersecurity</strong> could make a huge impact 
-                            on healthcare—from protecting patient data to helping doctors diagnose faster.
-                            I didn't have to choose between medicine and tech. I could combine them.
-                        </p>
-                        <p>
-                            So I made the switch. It was scary, but it was also the most exciting 
-                            decision I've ever made. And this portfolio is the first step in that journey.
-                        </p>
-                    </div>
-                    
-                    <div class="entry-footer">
-                        <div class="entry-tags">
-                            <span>#career</span>
-                            <span>#transition</span>
-                            <span>#medicine</span>
-                            <span>#cs</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <!-- Entry 3 -->
-        <article class="journal-entry" id="learning-js">
-            <div class="container">
-                <div class="entry-card">
-                    <div class="entry-header">
-                        <div class="entry-date">
-                            <span class="day">28</span>
-                            <span class="month">Feb</span>
-                            <span class="year">2026</span>
-                        </div>
-                        <div class="entry-title-group">
-                            <h2>My First Week Learning JavaScript</h2>
-                            <div class="entry-meta">
-                                <span><i class="fas fa-tag"></i> Programming</span>
-                                <span><i class="far fa-clock"></i> 6 min read</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="entry-body">
-                        <p>
-                            Week 1 of JavaScript: <strong>Confusion, frustration, and finally—understanding.</strong>
-                        </p>
-                        <p>
-                            I started with variables and functions. Simple enough. Then came DOM manipulation.
-                            I remember staring at <code>document.querySelector()</code> for 30 minutes 
-                            wondering why nothing was happening. I forgot to add an event listener. 😅
-                        </p>
-                        <p>
-                            But then, something magical happened. I made a button that changed text on click.
-                            It was tiny. But it felt huge.
-                        </p>
-                        <p>
-                            Here's what I've learned so far:
-                        </p>
-                        <ul>
-                            <li><strong>Functions</strong> are like recipes—they tell the computer what to do</li>
-                            <li><strong>DOM manipulation</strong> is how you make websites interactive</li>
-                            <li><strong>Console.log()</strong> is your best friend for debugging</li>
-                            <li><strong>Mistakes are normal</strong>—even experienced devs make them</li>
-                        </ul>
-                        <p>
-                            Next week: arrays and objects. I'm actually excited.
-                        </p>
-                    </div>
-                    
-                    <div class="entry-footer">
-                        <div class="entry-tags">
-                            <span>#javascript</span>
-                            <span>#learning</span>
-                            <span>#programming</span>
-                            <span>#coding</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <!-- ===== NEXT PAGE NAVIGATION ===== -->
-        <div class="next-page-nav">
-            <a href="projects.html" class="btn btn-outline">
-                <i class="fas fa-arrow-left"></i> Projects
-            </a>
-            <span class="nav-divider">|</span>
-            <a href="contact.html" class="btn btn-primary">
-                <i class="fas fa-arrow-right"></i> Contact
-            </a>
         </div>
-
-    </main>
+    </section>
+</main>
 
     <!-- Back to Top Button -->
     <button id="backToTop" title="Back to Top" aria-label="Scroll back to top">
-        <i class="fas fa-angle-up"></i>
-    </button>
+        </button>
 
     <!-- Footer -->
     <footer class="footer">
